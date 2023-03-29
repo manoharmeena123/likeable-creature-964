@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="../Frontend/assets/css/otp.css" />
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- <script src="otp.js" defer></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <i class="bx bxs-check-shield"></i>
+      </header>
+      <h4>Enter OTP Code</h4>
+      <form action="#">
+        <div class="input-field">
+          <input id="first" type="number" />
+          <input id="second" type="number" disabled />
+          <input id="third"  type="number" disabled />
+          <input id="fourth"  type="number" disabled />
+        </div>
+        <button id="otpbutton">Verify OTP</button>
+      </form>
+    </div>
+  </body>
+</html>
+<script>
+const inputs = document.querySelectorAll("input"),
+button = document.querySelector("button");
+
+
+inputs.forEach((input, index1) => {
+input.addEventListener("keyup", (e) => {
+  const currentInput = input,
+    nextInput = input.nextElementSibling,
+    prevInput = input.previousElementSibling;
+  if (currentInput.value.length > 1) {
+    currentInput.value = "";
+    return;
+  }
+  if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+    nextInput.removeAttribute("disabled");
+    nextInput.focus();
+  }
+
+  if (e.key === "Backspace") {
+   
+    inputs.forEach((input, index2) => {
+      if (index1 <= index2 && prevInput) {
+        input.setAttribute("disabled", true);
+        input.value = "";
+        prevInput.focus();
+      }
+    });
+  }
+  if (!inputs[3].disabled && inputs[3].value !== "") {
+    button.classList.add("active");
+    return;
+  }
+  button.classList.remove("active");
+});
+});
+window.addEventListener("load", () => inputs[0].focus());
+
+const otpbutton = document.querySelector("#otpbutton");
+otpbutton.addEventListener("click",fun);
+async function fun(event) {
+  try {
+    event.preventDefault();
+   
+    let first=document.querySelector("#first").value;
+let second=document.querySelector("#second").value;
+let third=document.querySelector("#third").value;
+let fourth=document.querySelector("#fourth").value;
+    let bag=""
+    bag+=first+second+third+fourth
+    let jhola=(bag)
+    // console.log(jhola)
+
+    let arr=localStorage.getItem("user")
+    let otparr=localStorage.getItem("back")
+    console.log(otparr)
+   
+    let p=JSON.parse(arr)
+    let userObj = {
+    
+        email:p.email,
+       password:p.password,
+       otp:jhola
+    };
+    let register_request = await fetch("http://localhost:8000/user/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userObj)
+    })
+    .then(res=>res.json())
+    .then(data=>  {
+      // console.log(data)
+      if(bag==otparr){
+        alert("registered successfully")
+        window.location.href="./login.html"
+        localStorage.clear()
+      }
+      else if(bag!=otparr){
+        alert("wrong otp")
+window.location.href="./otp.html"
+
+      }else{
+        // window.location.href="./signup.html"
+      }   
+})
+    .catch(err=>console.log(err))
+  } catch (error) {
+    alert("Something went wrong. Please try again later.");
+    console.log(error);
+  }
+}
+</script>

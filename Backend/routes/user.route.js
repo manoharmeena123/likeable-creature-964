@@ -11,7 +11,7 @@ const cookieparser = require("cookie-parser")
 userRouter.use(cookieparser())
 const nodemailer = require("nodemailer")
 const {mail} = require("./generateotpmail")
-const {client} = require("../service/redis")
+// const {client} = require("../service/redis")
 const { Console } = require("console")
 
 ///redis

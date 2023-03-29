@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href= "../Frontend/assets/css/login.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">     <!-- Container divided into 2 parts - Left and Right -->
+
+        <!-- Left Part start-->
+        <div class="container__leftPart">   
+
+            <!-- Navbar containing company logo and sign-up link -->
+            <div class="container__navbar">
+                <a href="./index.html">Home<img width="100px" src="#"></a>
+                <div><p>Don't have an account? <a href="singup.html">Sign Up</a></p></div>    
+            </div>
+
+            <!-- Login card start-->
+            <div class="container__loginCard">
+                <h3>Log In</h3>
+                <input type="email" placeholder="Enter email" id="email">
+                <input type="password" placeholder="Enter password" id="password">
+                <div class="loginCard__checkbox">
+                    <input type="checkbox">
+                    <label>Stay logged in</label>
+                </div>
+                <a href="#">Forgot password?</a><br>
+                <div class="loginBtn-link" ><a href="#"><button class="loginCard__loginBtn" id="login-btn" >Log in</button></a></div>   <!-- Log-in button verifies if user entered correct email. Initially set as disabled -->
+                <div class="loginCard__line">
+                    <div class="loginCard__leftLine"></div>
+                    <p style="color: #333333; font-size: 14px;">OR</p>
+                    <div class="loginCard__rightLine"></div>
+                </div>
+                <button class="loginCard__googleBtn"><img src="https://clockify.me/assets/ui-icons/icon-google.svg"> <span>Continue with Google</span></button>
+                 
+            </div>
+            <!-- Login card end-->
+
+        </div>
+        <!-- Left Part end-->
+
+        <!-- Right Part start-->
+        <div class="container__rightPart">
+            <h2>No need to keep Track it in a tab</h2>
+            <p>Install the browser extension<br> and start the booking from <br>anywhere.</p>
+            <img src="https://clockify.me/assets/ui-icons/ext-chrome.svg" class="rightPart__appstore"><br>   
+            <img src="https://clockify.me/assets/ui-icons/login-promo-2.svg" class="rightPart__pic"><br>
+            <div class="rightPart__learnMore"><a href="#">Learn More</a></div>
+        </div>
+        <!-- Right Part end-->
+
+    </div>
+    <!-- Container end-->
+
+    <!-- <script src="log-in.js"></script> -->
+</body>
+</html>
+<script>
+//       const Loginbtn = document.getElementById("login-btn");
+// Loginbtn.addEventListener("click",LoginFunction);
+
+// async function LoginFunction(event){
+//     try {
+//         event.preventDefault();
+//         let all_login_input = document.querySelectorAll("#login input");
+      
+   
+//     let email = document.querySelector("#email").value
+//     let password = document.querySelector("#password").value
+ 
+//     let obj  = {
+//       email,password
+//     }
+  
+//         console.log(obj);
+//         let login_request = await fetch("http://localhost:4500/user/login",{
+//             method : "POST",
+//             body : JSON.stringify(obj),
+//             headers : {
+//                 "Content-Type": "application/json", 
+//             },
+//         })
+//         .then((res) => res.json())
+//         .then((res) => {
+//             console.log(res)
+//             alert(res.msg)
+//             localStorage.setItem("psctoken",res.token)
+//             window.location.href= "./dashboard.html"
+//         })
+//         .catch((err) => console.log(err))
+        
+//     } catch (error) {
+// 		console.log(error.msg);
+//         alert("wrong username or password. Please try again later.");
+//     }
+// }
+const login = document.querySelector("#login-btn");
+login.addEventListener("click", func);
+async function func(event) {
+  try {
+    event.preventDefault();
+    // let all_input_tags = document.querySelectorAll("#register input");
+
+    let email = document.querySelector("#email").value;
+    let  password = document.querySelector("#password").value;
+    let userObj = {
+      email,
+      password
+    };
+
+
+
+    let register_request = await fetch("http://localhost:8000/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userObj)
+    })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data)
+
+        if (data.msg == "Login Successfully") {
+          alert(data.msg)
+          // console.log(data)
+          localStorage.setItem("user", data.token);
+          localStorage.setItem("email", email);
+          window.location.href = "./main.html"
+        } else {
+          alert(data.msg)
+          window.location.href = "./login.html"
+        }
+            
+      })
+      .catch(err => console.log(err))
+  } catch (error) {
+    alert("Something went wrong. Please try again later.");
+  }
+}
+</script>
