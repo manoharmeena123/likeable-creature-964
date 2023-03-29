@@ -1,23 +1,19 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-const projectSchema  = mongoose.Schema({
-
-    projectName : {type:String,required:true},
-    clientId : {type:String,required:true},
-    clientName :{type:String, required:true}, 
-    userId : {type:String,required:true},
-    //clientId : {type:Schema.Types.ObjectId,ref:"client",required:true},
-    // timeTracked : {type:Number},
-    // money : {type:Number},
-    star : {type:Boolean,default:false},
-    access : {type:String, enum:["Public","Private"],default:"Public"},
-
-    
-
+//const Schema = mongoose.Schema;
+const SalonSchema = mongoose.Schema({
+    name: "string",
+    image: "string",
+    location: "string",
+    rating: "number",
+    services: [{
+        servicesName: "string",
+        price: "string"
+    }],
+    availableTime: ["string"]
 },{versionKey:false})
 
-const ProjectModel = mongoose.model("project",projectSchema);
+const ProjectModel = mongoose.model("product",SalonSchema);
 
 
 module.exports = {ProjectModel};
@@ -30,6 +26,6 @@ module.exports = {ProjectModel};
 // name: "natural",
 //discription: "........",
 //avatar:"wqwetwrwtewr",
-//loacation:"mumbai",
+//location:"mumbai",
 //rating: 7.7,
 //service : [{name:"hair cut",price:130}, {name:"hair spa", price: 300}]

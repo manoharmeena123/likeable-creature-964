@@ -22,6 +22,7 @@ const {userRouter} = require("./routes/user.route")
 const {authorise} = require("./middleware/authorise")
 const {generateOtpRouter} = require("./routes/generateotpmail")
 const {newtokenRouter} = require("./routes/newtoken")
+const {ProjectRouter} = require("./routes/projects")
 app.get("/",(req,res)=>{
    console.log(req.cookies)
    res.json("Welcome")
@@ -30,7 +31,8 @@ app.get("/",(req,res)=>{
 
 app.use("/user",userRouter)
 
-app.use(authenticate)
+//app.use(authenticate)
+app.use("/product", ProjectRouter)
 app.use("/",newtokenRouter)
              
 
@@ -40,7 +42,7 @@ app.use("/",newtokenRouter)
 
 
 //additional routers     
- app.listen(process.env.port,async()=>{
+ app.listen(process.env.port ,async()=>{
     try {
        await connection 
     console.log("Connected to DB")

@@ -20,18 +20,25 @@ ProjectRouter.get("/:id",async(req,res)=>{
    }
 })
 
-
-
-
 //post 
 ProjectRouter.post("/add",async(req,res)=>{
-   let {projectName,clientId}=req.body;
-   if(!projectName || !clientId){res.status(422).json({err:"fill all the nescessary entries"})}
-   else{
-    let newPro = new ProjectModel(req.body);
-    let out = await newPro.save();
-    res.send(out);
+   //let {name, image, loaction, rating, services, availableTime}=req.body;
+   try {
+      //let newPro =
+      await ProjectModel.insertMany(req.body);
+      //await newPro.save()
+      //console.log(req.body);
+      res.send("data inserted")
+   } catch (error) {
+      console.log(error);
+      res.status(422).json({err:"fill all the nescessary entries"})
    }
+   // if(!projectName || !clientId){res.status(422).json({err:"fill all the nescessary entries"})}
+   // else{
+   //  let newPro = new ProjectModel(req.body);
+   //  let out = await newPro.save();
+   //  res.send(out);
+   // }
 })
 
 //delete 
