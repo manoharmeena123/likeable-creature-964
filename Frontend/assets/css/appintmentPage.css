@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    font-family: "poppins",sans-serif;
+}
+:root{
+    --main-color:#033a80;
+    --bg-color:#fff;
+    --text-color:#0f0c27;
+    --hover:hsl(260,200%,51%);
+    --big-font:3.2rem;
+    --medium-font:1.8rem;
+    --pp-font:0.94rem;
+}
+header{
+    border: 1px solid;
+    position: fixed;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    padding: 13px 10%;
+    transition: 0.2s;
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94, 104, 121, 0.288) ;
+}
+
+.navbar{
+    border: 0px solid;
+    display: flex;
+    height: 70px;
+}
+#navbar{
+    border: 0px solid red;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+#logo-div{
+    border: 0px solid green;
+    width:15% ;
+    text-align: center;
+}
+.logo {
+    font-size: 1.61rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+#search-div{
+    border: 0px solid black;
+    width: 60%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input{
+    width: 90%;
+    height: 80%;
+    border-radius: 30px;
+    margin: auto;
+    text-align: center;
+    
+  }
+#admin-div{
+    border: 0px solid blue;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+#user_name{
+    border: 1px solid;
+    border-radius: 30px;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+
+}
+
+/* main body */
+.main-body{
+    border: 0px solid;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-container{
+    border: 0px solid green;
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+/* left-container */
+.left-container{
+border: 0px solid red;
+height: auto;
+width: 50%;
+display: grid;
+grid-template-rows: repeat(2,1fr);
+}
+.upcoming-appointments{
+border: 0px solid green;
+height: 100%;
+width: auto;
+}
+.past-appointments{
+border: 0px solid red;
+height: 100%;
+width: auto;
+}
+/* upcoming ap */
+#ua-data{
+    border: 0px solid;
+    height: 85%;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.apointment-card{
+    border: 1px solid grey;
+    border-radius:10px ;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+.apointment-card:hover{
+border: 2px solid hsl(260, 100%, 51%);
+}
+
+.card-img-div{
+    width: 25%;
+    border: 0px solid green;
+    border-radius: 20px;
+
+}
+.salon-img-src{
+    width: 100%;
+    border-radius: 15px;
+}
+.description-div{
+
+width: 65%;
+border: 0px solid orangered;
+border-radius: 10px;
+}
+.description-div p{
+    color: grey;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* past ap */
+#pa-data{
+    border: 0px solid;
+    height: 85%;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+}
+/* right container */
+.right-container{
+border: 0px solid grey;
+height: auto;
+width: 50%;
+display: grid;
+grid-template-rows: repeat(2,1fr);
+padding: 10px;
+border-radius: 10px;
+}
+.appointments-calender{
+border: 1px solid red;
+
+}
+.mng-apointments{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px ;
+
+}
+#apointmentsbtn{
+    background: transparent;
+    height: 40px;
+    width: 50%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+#apointmentsbtn:hover{
+    background-color:hsl(260, 100%, 51%); ;
+    color: #fff;
+    
+}
+
+.calender-details-user{
+    border: 1px solid green;
+    height: 80%;
+    width: auto;
+    padding: 10px;
+}
+.appintments-details{
+    border: 1px solid orangered;
+}
+
+/* Popup css */
+#myPopup {
+    width: 400px;
+    height: 350px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  #close-btn{
+    margin-left:90% ;
+    background-color: transparent; border: 1px solid grey; border-radius: 5px; width: 45px; background-color:red;; color: white; font-weight: bold;
+  }
+  
+  #myPopup h3 {
+    margin-top: 0;
+  }
+  
+  #closePopup {
+    margin-top: 10px;
+  }
+  
+  #pop-btn1{
+    height: 40px;
+    margin-top: 15px;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  #pop-btn2{
+    height: 40px;
+    margin-top: 15px;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  #pop-btn2:hover{
+    background-color: rgb(206, 64, 64);
+    color: #fff;
+    font-weight: bold;
+  }
+  #pop-btn1:hover{
+    background-color: hsl(260, 100%, 51%);
+    color: #fff;
+    font-weight: bold;
+  }
+
+  /* close btn */
+  #myPopup1 {
+    width: 400px;
+    height: 300px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+ 
+
