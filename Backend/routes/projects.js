@@ -5,21 +5,6 @@ const ProjectRouter = express.Router();
 
 // *****************//
 // GET ALL USERS
-// ProjectRouter.get("/search/", async (req, res) => {
-//    let AllData= req.query.location ? {
-//        $or: [
-//              { location: { $regex:AllData, $options: "i" } }
-//        ]
-//    }:{};
-//    try {
-//        const data = await ProjectModel.find(AllData)
-//      res.send(data);
-//      console.log(data);
-//    } catch (error) {
-//        res.send("err:Not able to get the all salons data");
-//        console.log(error);
-//    }
-// });
 
 ProjectRouter.get("/search/", async (req, res) => {
    let AllData= req.query
@@ -35,15 +20,8 @@ ProjectRouter.get("/search/", async (req, res) => {
 
 
 
-// **********//
 
-//get all projects
-// ProjectRouter.get("/fetch",async(req,res)=>{
-//     let allProjects = await ProjectModel.find();
-//     res.send(allProjects);
-// })
-//get projects based on user 
-
+//GET================================================================================================> 
 ProjectRouter.get("/",async(req,res)=>{
    try{
    //let userId = req.params.id;
@@ -55,7 +33,7 @@ ProjectRouter.get("/",async(req,res)=>{
    }
 })
 
-//=====>  Regex for search Using location    <=============//
+//=====>  Regex for search Using location ============================================================> 
 //==>>>Sample URL => localhost:8000/product/search?location=goa
 ProjectRouter.get("/search/", async (req,res)=>{
    //let searchLocation = req.params
@@ -70,7 +48,7 @@ ProjectRouter.get("/search/", async (req,res)=>{
    }
 })
 
-//post 
+//Post================================================================================================> 
 ProjectRouter.post("/add",async(req,res)=>{
    //let {name, image, loaction, rating, services, availableTime}=req.body;
    try {
@@ -83,16 +61,10 @@ ProjectRouter.post("/add",async(req,res)=>{
       console.log(error);
       res.status(422).json({err:"fill all the nescessary entries"})
    }
-   // if(!projectName || !clientId){res.status(422).json({err:"fill all the nescessary entries"})}
-   // else{
-   //  let newPro = new ProjectModel(req.body);
-   //  let out = await newPro.save();
-   //  res.send(out);
-   // }
+
 })
 
-//delete 
-
+//Delete================================================================================================>  
 ProjectRouter.delete("/:id",async(req,res)=>{
   let _id = req.params.id;
   let out = await ProjectModel.findByIdAndDelete(_id);
