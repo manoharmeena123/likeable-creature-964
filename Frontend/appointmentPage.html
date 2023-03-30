@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- Style Link -->
-    <link rel="stylesheet" href="./appintmentPage.css">
+    <link rel="stylesheet" href="./assets/css/appintmentPage.css">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
@@ -17,7 +17,7 @@
 <div class="navbar">
     <div id="navbar">
         <div id="logo-div">
-            <a href="" class="logo">Fresha</a>
+            <img class="logo" src="./logos/BeautygemLogo.png" alt="">
         </div>
         <div id="search-div">
             <input class="input" type="text" placeholder="type anything">
@@ -117,7 +117,7 @@
                         <button id="close-btn"        id="closePopup">Close</button>
                         <h3>Manage Appointment</h3>
                         <div style="display: flex; flex-direction:column;">
-                            <p>Note: If you want to resschedule ragi an appointment
+                            <p>Note: If you want to reschedule ragi an appointment
                                 'click' on 'reschedule appointment'
                             </p>
                             <button id="pop-btn1">Reschedule appointment</button>
@@ -144,7 +144,36 @@
                 </div>
             </div>
             <div class="appintments-details">
-                <h3>Appointments Details</h3>
+                <div class="appintments-details-main-clild">
+                    <h3>Appointments Details</h3>
+                    <div class="apoint-for">
+                        <div class="apoint-for-child-1">
+                            <p>Shave</p>
+                            <p>&#8377 <span>100</span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="total-amount">
+                        <div class="apoint-for-child-2">
+                            <p>total</p>
+                            <p>&#8377 <span>100</span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="booking-ref">
+                        <p>Booking ref :<span>93A6A633</span></p>
+                    </div>
+                </div>
+                <div class="cancelation-policy">
+                    <h3>Cancelation policy</h3>
+                    <p>Cancel for free up to 48 hours ahead, otherwise you will be charged 50% of the service price for late cancellation or 100% for not showing up.</p>
+                </div>
+                <hr>
+                <div>
+                    <h3>Important info</h3>
+                    <p>Please kindly aim to arrive at least 5 minutes before the start time of your appointment. </p>
+                </div>
+
             </div>
         </div>
     </div>
@@ -152,4 +181,4 @@
 
 </body>
 </html>
-<script src="./appointmentpage.js"></script>
+<script src="./assets/js/appointmentpage.js"></script>

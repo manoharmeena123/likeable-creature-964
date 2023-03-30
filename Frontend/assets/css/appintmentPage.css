@@ -55,9 +55,7 @@ header{
     text-align: center;
 }
 .logo {
-    font-size: 1.61rem;
-    font-weight: 600;
-    color: var(--text-color);
+    height:40px;
   }
 #search-div{
     border: 0px solid black;
@@ -178,7 +176,7 @@ border-radius: 10px;
 }
 /* right container */
 .right-container{
-border: 0px solid grey;
+border: 1px solid grey;
 height: auto;
 width: 50%;
 display: grid;
@@ -187,7 +185,7 @@ padding: 10px;
 border-radius: 10px;
 }
 .appointments-calender{
-border: 1px solid red;
+border: 0px solid red;
 
 }
 .mng-apointments{
@@ -205,6 +203,7 @@ border: 1px solid red;
     border-radius: 10px;
     font-weight: bold;
     font-size: 13px;
+    margin-bottom: 10px;
 }
 #apointmentsbtn:hover{
     background-color:hsl(260, 100%, 51%); ;
@@ -213,13 +212,52 @@ border: 1px solid red;
 }
 
 .calender-details-user{
-    border: 1px solid green;
+    border: 1px solid grey;
+    border-radius: 10px;
     height: 80%;
     width: auto;
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
 }
+/* appointment details */
 .appintments-details{
-    border: 1px solid orangered;
+    border: 0px solid orangered;
+    margin-top: 13px;
+}
+.appintments-details-main-clild{
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 10px;
+}
+.appintments-details-main-clild hr{
+  font-size: 10px;
+  width: 80%;
+  height: 2px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-bottom: 10px;
+  background-color: grey;
+  border-radius: 10px;
+}
+.apoint-for-child-1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.apoint-for-child-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.appintments-details>hr{
+  font-size: 10px;
+  color: red;
 }
 
 /* Popup css */
@@ -239,7 +277,12 @@ border: 1px solid red;
   }
   #close-btn{
     margin-left:90% ;
-    background-color: transparent; border: 1px solid grey; border-radius: 5px; width: 45px; background-color:red;; color: white; font-weight: bold;
+    background-color: transparent; border: 1px solid grey; border-radius: 5px; width: 45px; background-color:hsl(260, 100%, 51%);; color: white; font-weight: bold;
+  }
+  #close-btn:hover{
+    background-color: red;
+    color: #fff;
+    
   }
   
   #myPopup h3 {
@@ -293,5 +336,64 @@ border: 1px solid red;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   }
 
+
+@media(max-width:950px){
+  #search-div{
+    width: 50%;
+    margin-left: 15%;
+  }
+
+  .main-body{
+    border: 0px solid;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container{
+  border: 0px solid green;
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.left-container{
+  border: 0px solid red;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+  }
+  .right-container{
+    margin-top: 15px;
+    border: 1px solid grey;
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    padding: 10px;
+    border-radius: 10px;
+    }
+    #myPopup {
+      width: 400px;
+      height: 350px;
+      display: none;
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+}
+
+@media(max-width:340px){
+  
+}
  
 
