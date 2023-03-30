@@ -116,8 +116,12 @@
       align-items: center;
     }
     .rating p {
-      font-weight: 800;
+      font-weight: 700;
       margin-left: 7px;
+    }
+    .rating h5 {
+      font-size: medium;
+      color: grey;
     }
     .auto-type {
       /* border: 1px solid red; */
@@ -128,7 +132,18 @@
     .auto-type>h1 {
       text-align: center;
       color: #37517e;
-      
+    }
+    .not-found {
+      width: 30%;
+      margin: auto;
+    }
+    .not-found img {
+      width: 100%;
+      height: 80%;
+    }
+    .not-found h1 {
+      text-align: center;
+      color: red;
     }
 
     /* CSS code for responsive design */
@@ -179,82 +194,114 @@
         <h3>Pragathees</h3>
       </div>
     </div>
-    <div class="total-pro">
-      <p>Chennai Central - Hair</p>
-      <h1>14 results for Hair in Chennai Central</h1>
-      <div class="pro-recomend">
-        <p>Recommended</p>
-        <div></div>
-      </div>
+    <div id="detail">
+      <!-- <div class="total-pro">
+        <p>Chennai Central - Hair</p>
+        <h1>14 results for Hair in Chennai Central</h1>
+        <div class="pro-recomend">
+          <p>Recommended</p>
+          <div></div>
+        </div>
+      </div> -->
     </div>
     <div class="auto-type">
       <h1><span class="typing"></span></h1>
     </div>
     <!-- Product card -->
-    <div class="product">
-      <div class="p-card">
+    <div id="nodata">
+      <!-- data not found -->
+    </div>
+    <div class="product" id="product">
+      <!-- <div class="p-card">
         <img class="store" src="https://images.fresha.com/locations/location-profile-images/162353/363866/d2bf595d-caa4-4f95-b335-332f13d94d44.jpg?class=width-small" alt="store_image">
         <h3>Tont&Naturals beauty</h3>
         <p>Chinmaya Nagar Stage 2, Sai Nagar, Kaliamman Koil Street, Chennai (Virugambakkam), Tamil Nadu</p>
         <div class="rating">
           <img src="./logos/star.png" alt="rating">
           <p>4.5</p>
+          <h5>(${Math.floor(Math.random() * 9001) + 1000}) Reviews</h5>
         </div>
-      </div>
-      <div class="p-card">
-        <img src="https://images.fresha.com/locations/location-profile-images/162353/363866/d2bf595d-caa4-4f95-b335-332f13d94d44.jpg?class=width-small" alt="store_image">
-        <h3>Tont&Naturals beauty</h3>
-        <p>Chinmaya Nagar Stage 2, Sai Nagar, Kaliamman Koil Street, Chennai (Virugambakkam), Tamil Nadu</p>
-        <div class="rating">
-          <img src="./logos/star.png" alt="rating">
-          <p>4.5</p>
-        </div>
-      </div>
-      <div class="p-card">
-        <img src="https://images.fresha.com/locations/location-profile-images/162353/363866/d2bf595d-caa4-4f95-b335-332f13d94d44.jpg?class=width-small" alt="store_image">
-        <h3>Tont&Naturals beauty</h3>
-        <p>Chinmaya Nagar Stage 2, Sai Nagar, Kaliamman Koil Street, Chennai (Virugambakkam), Tamil Nadu</p>
-        <div class="rating">
-          <img src="./logos/star.png" alt="rating">
-          <p>4.5</p>
-        </div>
-      </div>
-      <div class="p-card">
-        <img src="https://images.fresha.com/locations/location-profile-images/162353/363866/d2bf595d-caa4-4f95-b335-332f13d94d44.jpg?class=width-small" alt="store_image">
-        <h3>Tont&Naturals beauty</h3>
-        <p>Chinmaya Nagar Stage 2, Sai Nagar, Kaliamman Koil Street, Chennai (Virugambakkam), Tamil Nadu</p>
-        <div class="rating">
-          <img src="./logos/star.png" alt="rating">
-          <p>4.5</p>
-        </div>
-      </div>
-      <div class="p-card">
-        <img src="https://images.fresha.com/locations/location-profile-images/162353/363866/d2bf595d-caa4-4f95-b335-332f13d94d44.jpg?class=width-small" alt="store_image">
-        <h3>Tont&Naturals beauty</h3>
-        <p>Chinmaya Nagar Stage 2, Sai Nagar, Kaliamman Koil Street, Chennai (Virugambakkam), Tamil Nadu</p>
-        <div class="rating">
-          <img src="./logos/star.png" alt="rating">
-          <p>4.5</p>
-        </div>
-      </div>
-      <div class="p-card">
-        <img src="https://images.fresha.com/locations/location-profile-images/162353/363866/d2bf595d-caa4-4f95-b335-332f13d94d44.jpg?class=width-small" alt="store_image">
-        <h3>Tont&Naturals beauty</h3>
-        <p>Chinmaya Nagar Stage 2, Sai Nagar, Kaliamman Koil Street, Chennai (Virugambakkam), Tamil Nadu</p>
-        <div class="rating">
-          <img src="./logos/star.png" alt="rating">
-          <p>4.5</p>
-        </div>
-      </div>
+      </div> -->
     </div>
 </body>
 </html>
 <script>
+  //Auto-typing
   var typed = new Typed(".typing", {
     strings: ["Join the Beautygem Family", "We Will Help You To Find Your Magicians For You"],
     typeSpeed: 100,
     backSpeed: 60,
     loop: true,
   });
+
+  let globalData = []
+  //NEEDED place AND service from localstorage
+  let place = "chennai";
+  let service = "Hair-cut";
+
+  window.addEventListener("load",()=>{
+    // TECK DATA FROM LOCALSTORAGE 
+    getData()
+ })
+
+  async function getData(){
+    try {
+        let res = await fetch(`http://localhost:8000/product/search?location=${place}`)
+        let pro_data = await res.json()
+        console.log(pro_data);
+        globalData = [...pro_data]
+        render(pro_data)
+        detaileData(pro_data)
+    } catch (error) {
+        alert(`Something went wrong`)
+        console.log(error);
+    }
+  }
+
+  function detaileData(pro_data){
+    let cont = document.querySelector("#detail")
+    cont.innerHTML = `
+    <div class="total-pro">
+        <p>${place} - ${service}</p>
+        <h1>${pro_data.length} results for ${service} in ${place}</h1>
+        <div class="pro-recomend">
+          <p>Recommended</p>
+          <div></div>
+        </div>
+    </div>    
+    `
+  }
+
+  function render(pro_data){
+    let continer = document.querySelector("#product")
+    continer.innerHTML = ""
+
+    if(pro_data.length == 0){
+      let cont = document.querySelector("#nodata")
+      cont.innerHTML = `
+          <div class="not-found">
+            <h1>No Data in ${place}</h1>
+            <img src="./logos/nodata.jpg" alt="No data">
+          </div>
+        `
+    }else{
+      let passRender = pro_data.map((ele)=>{
+        return `
+          <div class="p-card" data-id=${ele._id}>
+            <img src=${ele.image} alt="store_image">
+            <h3>${ele.name}</h3>
+            <p>${ele.location}</p>
+            <div class="rating">
+              <img src="./logos/star.png" alt="rating">
+              <p>${ele.rating} ${ele.rating>=4.6?"Great":ele.rating<4.6 && ele.rating>=4.1?"Good":"Average"}</p>
+              <h5>(${Math.floor(Math.random() * 9001) + 1000}) Reviews</h5>
+            </div>
+          </div>
+        `
+      })
+
+      continer.innerHTML = passRender.join(" ")
+    }
+  }
 </script>
 <!-- we will help you to find your magicians for you -->
