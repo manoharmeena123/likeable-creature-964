@@ -9,14 +9,29 @@ ProjectRouter.get("/fetch",async(req,res)=>{
 })
 //get projects based on user 
 
-ProjectRouter.get("/:id",async(req,res)=>{
+ProjectRouter.get("/",async(req,res)=>{
    try{
-   let userId = req.params.id;
+   //let userId = req.params.id;
    
-   let data = await  ProjectModel.find({userId})
+   let data = await ProjectModel.find()
    res.send(data);
    }catch(err){
     console.log("error in projects | get by userId",err)
+   }
+})
+
+//=====>  Regex for search Using location    <=============//
+//==>>>Sample URL => localhost:8000/product/search?location=goa
+ProjectRouter.get("/search/", async (req,res)=>{
+   //let searchLocation = req.params
+   let locationQuery = req.query
+   try {
+      let loca = locationQuery.location
+      let data = await ProjectModel.find({location: { $regex: loca, $options: 'i'}})
+      res.send(data)
+   } catch (error) {
+      console.log(error);
+      res.status(404).send("Something went wrong")
    }
 })
 
