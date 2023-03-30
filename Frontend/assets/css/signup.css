@@ -310,3 +310,28 @@ z-index: 10; */
         margin-left: 0px;
     }
 }
+#signup{
+    display: flex;
+    align-items: space-between;
+    justify-content: center;
+    text-align: center;
+}
+
+#signup>div{
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-top: 5px solid white;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
