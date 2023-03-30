@@ -72,10 +72,12 @@ input {
   justify-content: space-between;
 }
 #left {
-  /* border: 2px solid green; */
+  border: 2px solid green;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   width: 60%;
   padding: 0px 10px;
+  overflow: auto;
+  height: 100vh;
 }
 #right {
   /* border: 2px solid blue; */
