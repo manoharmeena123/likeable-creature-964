@@ -21,11 +21,18 @@ const ProjectRouter = express.Router();
 //    }
 // });
 
-ProjectRouter.get("/search/", async (req, res) => {
-   let AllData= req.query
+ProjectRouter.get("/search/:key", async (req, res) => {
    try {
       // let getlocation=AllData.location
-       const data = await ProjectModel.find({location:{$regex:AllData.location,$options:"i"}})
+       const data = await ProjectModel.find(
+         {
+            "$or":[
+               {location:{$regex:req.params.key}},
+               {name:{$regex:req.params.key}}
+            ]
+         }
+       )
+         
      res.send(data);
    } catch (error) {
        res.send("err:Not able to get the all salons data");
