@@ -2,11 +2,46 @@ const express = require("express");
 const { ProjectModel } = require("../models/projects.model");
 const ProjectRouter = express.Router();
 
+
+// *****************//
+// GET ALL USERS
+// ProjectRouter.get("/search/", async (req, res) => {
+//    let AllData= req.query.location ? {
+//        $or: [
+//              { location: { $regex:AllData, $options: "i" } }
+//        ]
+//    }:{};
+//    try {
+//        const data = await ProjectModel.find(AllData)
+//      res.send(data);
+//      console.log(data);
+//    } catch (error) {
+//        res.send("err:Not able to get the all salons data");
+//        console.log(error);
+//    }
+// });
+
+ProjectRouter.get("/search/", async (req, res) => {
+   let AllData= req.query
+   try {
+      // let getlocation=AllData.location
+       const data = await ProjectModel.find({location:{$regex:AllData.location,$options:"i"}})
+     res.send(data);
+   } catch (error) {
+       res.send("err:Not able to get the all salons data");
+       console.log(error);
+   }
+});
+
+
+
+// **********//
+
 //get all projects
-ProjectRouter.get("/fetch",async(req,res)=>{
-    let allProjects = await ProjectModel.find();
-    res.send(allProjects);
-})
+// ProjectRouter.get("/fetch",async(req,res)=>{
+//     let allProjects = await ProjectModel.find();
+//     res.send(allProjects);
+// })
 //get projects based on user 
 
 ProjectRouter.get("/",async(req,res)=>{
