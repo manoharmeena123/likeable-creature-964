@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="../Frontend//assets/css/signup.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- /////// -->
+    <!-- <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
+  
 </head>
 
 <body>
@@ -20,15 +29,15 @@
         </div>
         <!-- Get Sarted -->
         <div class="Sign_Up_GetStarted">
-            <p class="Sign_Up_GetStarted_Get"> Get started with Fresha</p>
+            <p class="Sign_Up_GetStarted_Get"> Get started with Beautygem</p>
             <p class="Sign_Up_GetStarted_Create"> Create a free account to start Booking </p>
             <p class="SIgn_Up_GetStarted_Credit"> No credit card required · Unsubscribe at any time</p>
         </div>
         <!--Sign Up Form -->
         <div class="Sign_Up_Form">
             <label class="Sign_Up_Form_SignUp"> Sign Up</label>
-            <input type="text" name="email" id="email" placeholder="Enter email" required />
-            <input type="password" name="password" id="password" placeholder="Choose password" required />
+            <input type="text" name="email" id="email" placeholder="Enter email" required="true" oninput="validation()"/>
+            <input type="password" name="password" id="password" placeholder="Choose password" required="true" oninput="validation()"/>
             <!-- terms check box -->
             <label class="Sign_Up_Terms">
                 <input type="Checkbox" class="Sign_Up_Checkbox" id="Sign_Up_Checkbox" required checked>
@@ -66,16 +75,50 @@
         </div>
     </div>
 </div>
+<!-- test -->
+<div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
 </body>
 
 </html>
 <script>
+
+
+  let flag1=false;
+  let flag2=false
+
     const Register_btn = document.getElementById("signup");
     Register_btn.addEventListener("click", RegisterFunction);
+    const validation=(e)=>{
+     const docs=document.querySelector('#email').value;
+     const pass=document.querySelector('#password').value;
+     
+    if(docs.split("").includes("@")){
+      flag1=true
+     
+    }
+    if(pass.length>=4){
+      flag2=true
+    }
+
+    if(flag1 && flag2){
+      Register_btn.disabled=false
+      // console.log('allowing')
+    }
+   }
+    Register_btn.disabled=true;
   
     // Make API request to server for registering the new user.
     async function RegisterFunction(event) {
+
       try {
+        Register_btn.disabled=true;
+        Register_btn.style.backgroundColor='darkblue'
+        // let img=document.createElement('img');
+        // img.src='https://blog.hubspot.com/hs-fs/hubfs/ezgif-7-01995a3a7d61.gif?width=1500&name=ezgif-7-01995a3a7d61.gif'
+        Register_btn.innerHTML=`Loading <div class="dot"></div>`
+        
         event.preventDefault();
         let email = document.querySelector("#email").value;
         let password = document.querySelector("#password").value;
@@ -88,6 +131,7 @@
       //  let arr =[]
       //  arr.push(userObj)
   // console.log(arr)
+  let flag=true
         let register_request = await fetch(
           "http://localhost:8000/user/otp",
           {
@@ -98,20 +142,30 @@
             body: JSON.stringify(userObj),
           }
         )
-          .then((res) => res.json())
+          .then((res) =>{
+            if(res.status==401){
+              alert('You have to login');
+              window.location.href="./login.html"
+              flag=false
+            }
+             res.json()})
           .then((res) => {
+            if(flag){
+              Register_btn.innerHTML=`Create your Account`
             alert("Please Verify your OTP !");
            localStorage.setItem("user",JSON.stringify(userObj))
            localStorage.setItem("back",JSON.stringify(res))
           // console.log(res)
           
          window.location.href="./otp.html"
+        }
+        
 
           })
           .catch((err) => console.log(err));
       } catch (error) {
         alert("Something went wrong. Please try again later.");
-        console.log(error)
+        // console.log(error)
       }
 
 
