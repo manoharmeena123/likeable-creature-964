@@ -5,6 +5,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 #nav {
+  top: 0;
   height: 140px;
   background-color: rgb(16, 25, 40);
 }
@@ -34,6 +35,7 @@ body {
   height: 60px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px inset;
+  background-color: white;
 }
 #book {
   width: 60%;
@@ -59,10 +61,19 @@ body {
   transition: 500ms;
 }
 
-input {
-  width: 40px;
-  height: 40px;
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
   border: 1px solid grey;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked {
+  background-color: rgb(54, 233, 42);
+  border: none;
 }
 #main {
   /* border: 1px solid red; */
@@ -72,16 +83,17 @@ input {
   justify-content: space-between;
 }
 #left {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   width: 60%;
   padding: 0px 10px;
   overflow: auto;
-  height: 100vh;
+  height: 75vh;
 }
 #right {
   /* border: 2px solid blue; */
   width: 35%;
+  margin-bottom: 100px;
 }
 #right > div:nth-child(1) {
   text-align: center;
@@ -93,7 +105,7 @@ input {
 }
 #left1 {
   /* border: 2px solid rgb(230, 42, 13); */
-  margin-top: 16px;
+  margin-top: 20px;
 }
 #left2 {
   width: 90%;

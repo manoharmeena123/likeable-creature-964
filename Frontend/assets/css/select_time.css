@@ -27,6 +27,7 @@ body {
   margin-top: -30px;
 }
 #main {
+  padding-top: 50px;
   /* border: 1px solid red; */
   width: 60%;
   margin: auto;
@@ -34,15 +35,56 @@ body {
   justify-content: space-between;
 }
 #left {
-  border: 2px solid black;
+  border: 2px solid rgb(88, 88, 88);
+  border-radius: 10px;
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
   width: 60%;
   padding: 0px 10px;
 }
+#left input {
+  border: 2px solid rgb(88, 88, 88);
+  border-radius: 10px;
+  padding: 10px;
+}
+#date {
+  /* border: 1px solid red; */
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+}
+#inputtime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  /* border: 1px solid green; */
+  padding-left: 20px;
+}
+#sltime {
+  /* border: 2px solid blue; */
+  overflow: auto;
+  height: 38vh;
+}
+
 #right {
   /* border: 2px solid blue; */
   width: 35%;
 }
 #right > div:nth-child(1) {
   text-align: center;
+}
+#timelist {
+  width: 20%;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+#timelist:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
 }
