@@ -131,7 +131,8 @@
       //  let arr =[]
       //  arr.push(userObj)
   // console.log(arr)
-  let flag=true
+  let flag=true;
+  let status=null
         let register_request = await fetch(
           "http://localhost:8000/user/otp",
           {
@@ -142,20 +143,20 @@
             body: JSON.stringify(userObj),
           }
         )
-          .then((res) =>{
+          .then((res) => res.json())
+          .then((res) => {
+            // console.log(data)
             if(res.status==401){
               alert('You have to login');
               window.location.href="./login.html"
               flag=false
             }
-             res.json()})
-          .then((res) => {
             if(flag){
               Register_btn.innerHTML=`Create your Account`
             alert("Please Verify your OTP !");
            localStorage.setItem("user",JSON.stringify(userObj))
            localStorage.setItem("back",JSON.stringify(res))
-          // console.log(res)
+          
           
          window.location.href="./otp.html"
         }
