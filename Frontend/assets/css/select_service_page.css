@@ -8,6 +8,7 @@ body {
   top: 0;
   height: 140px;
   background-color: rgb(16, 25, 40);
+  position: sticky;
 }
 #step {
   /* border: 1px solid red; */
@@ -88,7 +89,7 @@ input[type="checkbox"]:checked {
   width: 60%;
   padding: 0px 10px;
   overflow: auto;
-  height: 75vh;
+  height: 72vh;
 }
 #right {
   /* border: 2px solid blue; */
