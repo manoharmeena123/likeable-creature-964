@@ -131,7 +131,7 @@ async function func(event) {
           // console.log(data)
           localStorage.setItem("user", data.token);
           localStorage.setItem("email", email);
-          window.location.href = "./main.html"
+          window.location.href = "./index.html"
         } else {
           alert(data.msg)
           window.location.href = "./login.html"
@@ -143,4 +143,6 @@ async function func(event) {
     alert("Something went wrong. Please try again later.");
   }
 }
+
+//add
 </script>
