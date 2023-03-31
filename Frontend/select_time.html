@@ -12,14 +12,28 @@
       <div id="step">
         <p>
           &#x27F5;
-          <span style="color: grey; margin-left: 10px">Step 2 of 4</span>
+          <span style="color: grey; margin-left: 10px">Step 2 of 3</span>
         </p>
         <p>&#x292B;</p>
       </div>
       <div id="select"><h1>Select Time</h1></div>
     </div>
     <div id="main">
-      <div id="left"></div>
+      <div id="left">
+        <div id="date">
+          <div>
+            <label><h2 style="margin-bottom: -7px">Choose Date</h2></label
+            ><br />
+            <input type="date" id="startDate" />
+          </div>
+        </div>
+        <div id="inputtime">
+          <div>
+            <label><h2>Select Time</h2></label>
+          </div>
+          <div id="sltime"></div>
+        </div>
+      </div>
       <div id="right">
         <div>
           <img
@@ -31,15 +45,43 @@
           <p id="ad3">MG Road, Opposite Central Mall, Banglore, Karnataka</p>
         </div>
         <hr />
-        <div id="added">
+        <!-- <div id="added">
           <div id="added1"></div>
         </div>
-        <hr />
+        <hr /> -->
         <div style="display: flex; justify-content: space-between">
           <h3>Total</h3>
           <h3 id="total"></h3>
         </div>
       </div>
+    </div>
+    <div
+      style="
+        /* border: 1px solid red; */
+        width: 100%;
+        background-color: white;
+        margin: auto;
+        text-align: right;
+        bottom: 0;
+        position: fixed;
+        margin-top: 80px;
+        padding-bottom: 10px;
+      "
+    >
+      <button
+        id="next"
+        style="
+          padding: 5px 40px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          background-color: rgb(16, 25, 40);
+          color: white;
+          margin-right: 310px;
+        "
+      >
+        <h2>Next</h2>
+      </button>
     </div>
   </body>
 </html>

@@ -102,19 +102,18 @@ let fourth=document.querySelector("#fourth").value;
     })
     .then(res=>res.json())
     .then(data=>  {
-      // console.log(data)
+      console.log(data)
       if(bag==otparr){
         alert("registered successfully")
         window.location.href="./login.html"
         localStorage.clear()
       }
-      else if(bag!=otparr){
+      else{
         alert("wrong otp")
-window.location.href="./otp.html"
-
-      }else{
+         window.location.href="./otp.html"
+      }
         // window.location.href="./signup.html"
-      }   
+         
 })
     .catch(err=>console.log(err))
   } catch (error) {

@@ -24,7 +24,7 @@
     <div class="Sign_Up_Contianer">
         <!-- Navbar -->
         <div class="Sign_Up_Navbar">
-            <a href="./index.html">Home</a>
+          <img style="width: 30%;" src="./logos/Beautygem_login-signpage.png" alt="logo">
             <a href="login.html" class="Sign_Up_Login">Log In</a>
         </div>
         <!-- Get Sarted -->
@@ -46,7 +46,7 @@
                 <a href="#">Terms of Use</a>
             </label>
             <!-- create button -->
-            <a href="#"><button  class="Sign_UP_Create_Button" id="signup"> CREATE FREE ACCOUNT </button></a>
+            <a href="#" style="text-decoration: none;"><button  class="Sign_UP_Create_Button" id="signup"> CREATE FREE ACCOUNT </button></a>
             <h4 class="Sign_Up_error Sign_Up_error_msg" id="Sign_Up_error"> You must accept the terms of service </h4>
             <!-- <p class="Sign_Up_OR"><img
                     src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0HBwcHBxAQBwcHBw0HBwcHBw8ICQcNIBEWIiARFR8kHUAjIiYxHRUfITM5MTU3OjouIzQ3QDM4TjQyMjcBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAAAAQcGBAUD/8QALBABAAAFBQEAAgAEBwAAAAAAAAMEBVSUARUX0dMCBhEhgaGxBxITFDFhcf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDcFQBRAFEAUQBRAFQAUQBRAFEAAAAAAAAAAAAAAAAAAAAAURQRQBBUAFQAVABUAAABQQUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQBRFAEAVABRAFEAFQBRAFEAAAAAAAAAAAAAAAAAAAAAAAAUEAAFQAVABUABQQFBAUEAAAAAAAAAAAAAAAAAAABRABUAFQB8T8v/J5b8Spf1Vql8xY0v8AMb4gf6clC+YsX6+tdf8AvXTT+rhueqLb1DDlvZqEeBDmYesKY+PmPC+tf3rDjQ9Inxr/AC1eXZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbNJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbNJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZpK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvY56otvUMOW9mjbLJWsvgQujZZK1l8CF0DOeeqLb1DDlvZ0X4T/AIk0/wDNJ2ZkKXDmZeYlZb/d/e4S0OH8ffx/m00/hr8/ev8AH966f8/r+7pNlkrWXwIXT95aRgSmv1rKQocrr96fr71l5f4g6/f/AL+tAehABUAAAAAAFBBQEFAQUBBQEFAQUBBQEFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAFQAVABUAAAAAAAAAAAAAAAAAAAAABQEBQQFARQBFAEUAABFAAAEFAQVAAUEBQQFBAUEFQAVABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAH/9k="
@@ -131,7 +131,8 @@
       //  let arr =[]
       //  arr.push(userObj)
   // console.log(arr)
-  let flag=true
+  let flag=true;
+  let status=null
         let register_request = await fetch(
           "http://localhost:8000/user/otp",
           {
@@ -142,20 +143,20 @@
             body: JSON.stringify(userObj),
           }
         )
-          .then((res) =>{
+          .then((res) => res.json())
+          .then((res) => {
+            // console.log(data)
             if(res.status==401){
               alert('You have to login');
               window.location.href="./login.html"
               flag=false
             }
-             res.json()})
-          .then((res) => {
             if(flag){
               Register_btn.innerHTML=`Create your Account`
             alert("Please Verify your OTP !");
            localStorage.setItem("user",JSON.stringify(userObj))
            localStorage.setItem("back",JSON.stringify(res))
-          // console.log(res)
+          
           
          window.location.href="./otp.html"
         }

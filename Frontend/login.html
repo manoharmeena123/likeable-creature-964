@@ -16,7 +16,7 @@
 
             <!-- Navbar containing company logo and sign-up link -->
             <div class="container__navbar">
-                <a href="./index.html">Home</a>
+                <img style="width: 30%;" src="./logos/Beautygem_login-signpage.png" alt="logo">
                 <div><p>Don't have an account? <a href="./signup.html">Sign Up</a></p></div>    
             </div>
 
@@ -131,7 +131,7 @@ async function func(event) {
           // console.log(data)
           localStorage.setItem("user", data.token);
           localStorage.setItem("email", email);
-          window.location.href = "./main.html"
+          window.location.href = "./index.html"
         } else {
           alert(data.msg)
           window.location.href = "./login.html"
@@ -143,4 +143,6 @@ async function func(event) {
     alert("Something went wrong. Please try again later.");
   }
 }
+
+//add
 </script>

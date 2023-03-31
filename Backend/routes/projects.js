@@ -25,15 +25,11 @@ ProjectRouter.get("/search/:key", async (req, res) => {
    }
 });
 
-
-
-
 //GET================================================================================================> 
-ProjectRouter.get("/",async(req,res)=>{
+ProjectRouter.get("/data/:id",async(req,res)=>{
+   let userId = req.params.id;
    try{
-   //let userId = req.params.id;
-   
-   let data = await ProjectModel.find()
+   let data = await ProjectModel.find({_id: userId})
    res.send(data);
    }catch(err){
     console.log("error in projects | get by userId",err)
@@ -59,7 +55,6 @@ ProjectRouter.get("/search/", async (req,res)=>{
 ProjectRouter.post("/add",async(req,res)=>{
    //let {name, image, loaction, rating, services, availableTime}=req.body;
    try {
-      //let newPro =
       await ProjectModel.insertMany(req.body);
       //await newPro.save()
       //console.log(req.body);
