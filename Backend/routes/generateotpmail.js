@@ -12,8 +12,8 @@ function generate(){
 
 
   const mail =  ( async (req,res,next)=>{
-  const user=await UserModel.findOne({email:req.body.email})
-  if(user)return res.status(401).send({"msg":"User already present"})
+  const users=await UserModel.findOne({email:req.body.email})
+  if(users)return res.status(401).send({"msg":"User already present"})
  let OTP = generate()
             const transporter = nodemailer.createTransport({
                 // host: 'smtp.ethereal.email',
@@ -30,7 +30,7 @@ function generate(){
                 from:"manoharmeena245@gmail.com",
                 subject:"One-Time_Password Verification !",
                 text: `OTP Vefification ${OTP}`
-            }).then(()=>{{}
+            }).then(()=>{
                 console.log("mail sent successfully")
                 res.json(OTP)
                 // res.cookie("OTP",OTP)
