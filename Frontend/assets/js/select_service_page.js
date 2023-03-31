@@ -1,13 +1,21 @@
 let all_services = document.getElementById("left");
 let total = 0;
 let flag = false;
+
+let shpname = JSON.parse(localStorage.getItem("shopDetails"));
+// console.log("tyu", shpname["name"]);
+// console.log(shpname["image"]);
+// console.log(shpname["location"]);
+
 let totalamt = document.getElementById("total");
 let simage = document.getElementById("ad1");
-// simage.src = "";
+simage.style.width = "150px";
+simage.style.marginTop = "10px";
+simage.src = shpname["image"];
 let sname = document.getElementById("ad2");
-// sname.innerText = "";
+sname.innerText = shpname["name"];
 let sadd = document.getElementById("ad3");
-// sadd.innerText = "";
+sadd.innerText = shpname["location"];
 // let nm = document.querySelector(".nm");
 // let pr = document.querySelector(".pr");
 let added1 = document.getElementById("added1");
@@ -28,7 +36,7 @@ let append = (data) => {
 
     let select = document.createElement("input");
     select.setAttribute("type", "checkbox");
-    select.addEventListener("click", () => {
+    select.addEventListener("click", (event) => {
       //total=total+(+el.price) when select
       // total = total + 50; //testing
       //total=total-(+el.price) when deselect
@@ -38,17 +46,31 @@ let append = (data) => {
         // nm.innerText = el.title;
         // pr.innerText = el.price;
         let name = document.createElement("h3");
-        name.innerText = el.title;
+        name.innerText = el.servicesName.substring(0, 16) + "..";
         let pc = document.createElement("h3");
-        pc.innerText = `Rs. ${el.price}/-`;
+        pc.innerText = `Rs. ${parseFloat(el.price.replace(/[^\d\.]/g, ""))}/-`;
         d.append(name, pc);
         added1.append(d);
-        total = total + +el.price;
+
+        total = total + +parseFloat(el.price.replace(/[^\d\.]/g, ""));
         totalamt.innerText = `Rs. ${total}/-`;
+        localStorage.setItem("totalamount", JSON.stringify(total));
       } else if (select.checked == false) {
         alert("Removed from your list");
-        total = total - +el.price;
+
+        console.log("before", d);
+        d.remove();
+
+        d = document.createElement("div");
+        d.setAttribute("id", "xyz");
+        d.style.display = "flex";
+        d.style.justifyContent = "space-between";
+
+        console.log("after", d);
+
+        total = total - +parseFloat(el.price.replace(/[^\d\.]/g, ""));
         totalamt.innerText = `Rs. ${total}/-`;
+        localStorage.setItem("totalamount", JSON.stringify(total));
       }
     });
 
@@ -58,10 +80,10 @@ let append = (data) => {
     div2.setAttribute("id", "left2");
 
     let title = document.createElement("h2");
-    title.innerText = el.title;
+    title.innerText = el.servicesName.substring(0, 16) + "..";
 
     let price = document.createElement("h3");
-    price.innerText = `Rs. ${+el.price}.00/-`;
+    price.innerText = `Rs. ${parseFloat(el.price.replace(/[^\d\.]/g, ""))}/-`;
 
     div2.append(title, price);
 
@@ -69,61 +91,14 @@ let append = (data) => {
     all_services.append(div);
   });
   totalamt.innerText = `Rs. ${total}/-`;
+  localStorage.setItem("totalamount", JSON.stringify(total));
 };
 
 function get_services_data() {
   //fetch the data and then append it using append(data)
 
-  let data = [
-    {
-      title: "Natural hair colour",
-      price: "1160",
-    },
-    {
-      title: "Massage",
-      price: "    950",
-    },
-    {
-      title: "Skin care",
-      price: "4100",
-    },
-    {
-      title: "Natural hair colour",
-      price: "1160",
-    },
-    {
-      title: "Massage",
-      price: "    950",
-    },
-    {
-      title: "Skin care",
-      price: "4100",
-    },
-    {
-      title: "Natural hair colour",
-      price: "1160",
-    },
-    {
-      title: "Massage",
-      price: "    950",
-    },
-    {
-      title: "Skin care",
-      price: "4100",
-    },
-    {
-      title: "Natural hair colour",
-      price: "1160",
-    },
-    {
-      title: "Massage",
-      price: "    950",
-    },
-    {
-      title: "Skin care",
-      price: "4100",
-    },
-  ];
+  let data = JSON.parse(localStorage.getItem("list"));
+  // console.log("data", data[0]);
   append(data);
 }
 get_services_data();
