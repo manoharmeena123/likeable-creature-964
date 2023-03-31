@@ -319,7 +319,13 @@
         console.log(pro_data);
         globalData = [...pro_data]
         render(pro_data)
+        //session
         sessionStorage.setItem("shopData", JSON.stringify(pro_data[0]))
+
+        //local
+        localStorage.setItem("list", JSON.stringify(pro_data[0]["services"]));
+        localStorage.setItem("shopDetails", JSON.stringify(pro_data[0]));
+
         // detaileData(pro_data)
         serviceList(pro_data[0])
     } catch (error) {
@@ -377,7 +383,7 @@
 
   }
 
-  
+
 
   //add footer
 </script>
