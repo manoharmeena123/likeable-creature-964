@@ -256,3 +256,24 @@
   });
 
 })()
+
+
+// Data store in session storage
+
+let getData = document.querySelector("#buttonEnt")
+getData.addEventListener("click",()=>{
+  let service_ser = document.querySelector("#search").value
+  let location_ser = document.querySelector("#location").value
+
+  let user_search = {
+    "service": service_ser,
+    "location": location_ser
+  }
+
+  sessionStorage.setItem("userSearch", JSON.stringify(user_search))
+
+  document.querySelector("#search").value = "";
+  document.querySelector("#location").value = ""
+  //console.log(service_ser, location_ser, user_search);
+  window.location.href = "productPage.html"
+})

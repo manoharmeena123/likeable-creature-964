@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="./logos/Beauty -landing logo.png" rel="icon">
+    <link rel="stylesheet" href="./assets/css/productPage.css">
+
+    <title>Product</title>
+    <style>
+        .map-product {
+            height: 400px;
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2 ,1fr);
+            gap: 25px;
+        }
+        .title {
+            margin-left: 5%;
+        }
+        .title p,h1 {
+            margin: 10px 0px;
+        }
+        .title p{
+            color: grey;
+        }
+        .title h1 {
+            color: #37517e;
+        }
+        .product {
+            /* border: 1px solid red; */
+            position: relative;
+        }
+        .product img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* .map {
+            border: 1px solid red;
+        } */
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .book {
+            display: flex;
+            width: 60%;
+            /* border: 1px solid black; */
+            margin: auto;
+            padding: 17px 10px;
+            justify-content: center;
+        }
+        .book button {
+            padding: 15px 95px;
+            font-size: 24px;
+            background-color: #37517e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .book button:hover {
+            color: #37517e;
+            background-color: white;
+            border: 2px solid #37517e;
+        }
+
+        @media screen and (min-width:481px) and (max-width: 786px) {
+            /* Styles for screens with maximum width of 768px */
+            .map-product {
+                grid-template-columns:1fr;
+            }
+            .product {
+                height: 300px;
+            }
+            .map {
+                height: 250px;
+            }
+            .book {
+                margin-top: 240px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            /* Styles for screens with maximum width of 480px */
+            .map-product {
+                grid-template-columns:1fr;
+            }
+            .product {
+                height: 300px;
+            }
+            .map {
+                height: 250px;
+            }
+            .book {
+                margin-top: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="p-nav">
+        <div class="logo">
+          <img src="logos/BeautygemLogo.png" alt="logo">
+        </div>
+        <div class="search">
+          <input type="text">
+          <button>Search</button>
+        </div>
+        <div class="name">
+          <!-- add Person name -->
+          <h3>Pragathees</h3>
+        </div>
+    </div>
+    <div class="main-card">
+        <div class="title">
+            <p id="serlo"></p>
+            <h1 id="storeName"></h1>
+        </div>
+        <div class="map-product">
+            <div class="product">
+                <img id="avatar" alt="product">
+            </div>
+            <div class="map">
+                <iframe
+                    id="map"
+                    frameborder="0"
+                    scrolling="yes"
+                    marginheight="0"
+                    marginwidth="0"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="book" id="book">
+        <button>BOOK YOUR SEAT</button>
+    </div>
+</body>
+</html>
+<script>
+    let globalData = []
+    let pro_id = sessionStorage.getItem("productId")
+    console.log(pro_id);
+    window.addEventListener("load",()=>{
+    // TECK DATA FROM LOCALSTORAGE 
+        getData()
+    })
+
+  async function getData(){
+    try {
+        let res = await fetch(`http://localhost:8000/product/data/${pro_id}`)
+        let pro_data = await res.json()
+        console.log(pro_data);
+        globalData = [...pro_data]
+        render(pro_data)
+        sessionStorage.setItem("shopData", JSON.stringify(pro_data[0]))
+        // detaileData(pro_data)
+    } catch (error) {
+        alert(`Something went wrong`)
+        console.log(error);
+    }
+  }
+
+  function render(pro_data){
+    let data = pro_data[0]
+    let userSearchProduct = JSON.parse(sessionStorage.getItem("userSearch"))
+
+    document.querySelector("#serlo").innerHTML = `${userSearchProduct.service} - ${userSearchProduct.location}`
+    document.querySelector("#storeName").innerHTML = data.name
+
+    //image
+    let productImage = document.querySelector("#avatar")
+    productImage.src = data.image
+
+    // Map append
+    let map = document.getElementById("map");
+    map.src = `https://maps.google.com/maps?q=${data.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
+  }
+
+  let bookseat = document.querySelector("#book")
+  bookseat.addEventListener("click",()=>{
+    window.location.href = "select_service_page.html"
+  })
+
+  //add footer
+</script>
