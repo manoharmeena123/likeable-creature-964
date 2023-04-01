@@ -1,4 +1,6 @@
 let shpname = JSON.parse(localStorage.getItem("shopDetails"));
+let past_data = JSON.parse(localStorage.getItem("upcoming"));
+console.log("past", past_data);
 
 let simage = document.getElementById("ad1");
 simage.style.width = "150px";
@@ -14,42 +16,35 @@ let totalamount = JSON.parse(localStorage.getItem("totalamount"));
 total.innerText = `Rs. ${totalamount}.00/-`;
 
 const startdate = document.getElementById("startDate");
-let starttime = document.getElementById("timelist");
-
-let nextbtn = document.getElementById("next");
-nextbtn.addEventListener("click", async () => {
-  alert("clicked");
-  let obj = {
-    startdate: startdate.value,
-    starttime: starttime.value,
-  };
-  console.log(obj);
-
-  let event = await fetch("url", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(obj),
-  });
-  //   let res = await event.json();
-  //   console.log(res);
-});
 
 let selecttime = document.getElementById("sltime");
 
 let append = (data) => {
   data.forEach((el) => {
-    let div = document.createElement("div");
-    div.setAttribute("id", "timelist");
+    let div1 = document.createElement("div");
+    div1.setAttribute("id", "timelist");
 
     let time = document.createElement("h4");
-    time.innerText = `${el + " " + ">"}`;
+    time.setAttribute("id", "selectedtime");
+    time.innerText = `${el}`;
 
-    div.append(time);
-    selecttime.append(div);
+    div1.addEventListener("click", () => {
+      if (startdate.value == "") {
+        return alert("Select date first");
+      } else {
+        console.log("you got the date");
+        past_data["time"] = el;
+        past_data["date"] = startdate.value;
+        window.location.href = "./payment_review.html";
+      }
+    });
+
+    div1.append(time);
+    selecttime.append(div1);
   });
 };
 let data = JSON.parse(localStorage.getItem("shopDetails"));
 let res = data["availableTime"];
 append(res);
+
+localStorage.setItem("pastdata", JSON.stringify(past_data));

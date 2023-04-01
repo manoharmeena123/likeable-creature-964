@@ -27,7 +27,7 @@ body {
   margin-top: -30px;
 }
 #main {
-  padding-top: 50px;
+  padding-top: 20px;
   /* border: 1px solid red; */
   width: 60%;
   margin: auto;
@@ -65,7 +65,7 @@ body {
 #sltime {
   /* border: 2px solid blue; */
   overflow: auto;
-  height: 38vh;
+  height: 50vh;
 }
 
 #right {
@@ -80,7 +80,7 @@ body {
   margin: auto;
   border-radius: 10px;
   margin-bottom: 8px;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   cursor: pointer;
 }
 #timelist:hover {
