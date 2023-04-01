@@ -36,7 +36,9 @@ let append = (data) => {
         past_data["time"] = el;
         past_data["date"] = startdate.value;
         localStorage.setItem("pastdata", JSON.stringify(past_data));
-        window.location.href = "./appointmentPage.html";
+        setTimeout(() => {
+          window.location.href = "./confirmation_page.html";
+        }, 1500);
       }
     });
 
