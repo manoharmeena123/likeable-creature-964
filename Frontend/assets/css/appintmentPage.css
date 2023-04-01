@@ -92,14 +92,18 @@ header{
 /* main body */
 .main-body{
     border: 0px solid;
-    height: 600px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid red;
+    width: 95%;
+    margin: auto;
+    padding: 40px;
 }
 .main-container{
     border: 0px solid green;
-    width: 85%;
+    width: 98%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -179,9 +183,9 @@ border-radius: 10px;
 border: 1px solid grey;
 height: auto;
 width: 50%;
-display: grid;
-grid-template-rows: repeat(2,1fr);
-padding: 10px;
+/* display: grid; */
+/* grid-template-rows: repeat(2,1fr); */
+padding: 15px;
 border-radius: 10px;
 }
 .appointments-calender{
@@ -212,26 +216,32 @@ border: 0px solid red;
 }
 
 .calender-details-user{
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     border-radius: 10px;
-    height: 80%;
+    height: 250px;
     width: auto;
-    padding: 20px;
+    padding: 50px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 /* appointment details */
 .appintments-details{
-    border: 0px solid orangered;
+    /* border: 0px solid orangered; */
     margin-top: 13px;
 }
 .appintments-details-main-clild{
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   padding: 10px;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.appintments-details-main-clild>h3 {
+  text-align: center;
+  color: #033a80;
+  padding: 5px;
 }
 .appintments-details-main-clild hr{
   font-size: 10px;
@@ -245,19 +255,58 @@ border: 0px solid red;
   border-radius: 10px;
 }
 .apoint-for-child-1{
+  width: 80%;
+  margin: auto;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+.apoint-for-child-1>p {
+  font-size: large;
+  color: grey;
+}
 .apoint-for-child-2{
+  width: 80%;
+  margin: auto;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+}
+.apoint-for-child-2>h3 {
+  color: #195aaf;
 }
 .appintments-details>hr{
   font-size: 10px;
   color: red;
+}
+.booking-ref {
+  width: 80%;
+  margin: auto;
+  padding: 5px 0px;
+}
+.booking-ref h4 {
+  color: #195aaf;
+}
+.booking-ref>h4>span {
+  color: green;
+}
+.cancelation-policy {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+}
+.cancelation-policy p{
+  font-size: large;
+}
+.info {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px;
+}
+.info p {
+  font-size: large;
 }
 
 /* Popup css */
@@ -277,12 +326,6 @@ border: 0px solid red;
   }
   #close-btn{
     margin-left:90% ;
-    background-color: transparent; border: 1px solid grey; border-radius: 5px; width: 45px; background-color:hsl(260, 100%, 51%);; color: white; font-weight: bold;
-  }
-  #close-btn:hover{
-    background-color: red;
-    color: #fff;
-    
   }
   
   #myPopup h3 {
@@ -296,7 +339,8 @@ border: 0px solid red;
   #pop-btn1{
     height: 40px;
     margin-top: 15px;
-    background-color: transparent;
+    background-color: hsl(260, 100%, 51%);
+    color: white;
     border: 1px solid grey;
     border-radius: 10px;
     font-weight: bold;
@@ -304,38 +348,97 @@ border: 0px solid red;
   #pop-btn2{
     height: 40px;
     margin-top: 15px;
-    background-color: transparent;
+    background-color: red;
+    color: white;
     border: 1px solid grey;
     border-radius: 10px;
     font-weight: bold;
   }
   #pop-btn2:hover{
-    background-color: rgb(206, 64, 64);
-    color: #fff;
+    background-color: white;
+    color: red;
+    border: 2px solid red;
     font-weight: bold;
   }
   #pop-btn1:hover{
-    background-color: hsl(260, 100%, 51%);
-    color: #fff;
+    background-color: white;
+    color: hsl(260, 100%, 51%);
+    border: 2px solid hsl(260, 100%, 51%);
     font-weight: bold;
   }
 
   /* close btn */
-  #myPopup1 {
+  #myPopup {
     width: 400px;
-    height: 300px;
+    height: 370px;
     display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: #fff;
+    /* background-color: #fff; */
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.2);
+      -webkit-backdrop-filter: blur(41px);
+      backdrop-filter: blur(41px);
   }
 
+  #pop-card span {
+    color: rgb(228, 150, 7);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  #pop-card p {
+    font-size: large;
+    color: grey;
+  }
+  #pop-card button {
+    font-size: large;
+    cursor: pointer;
+    border: none;
+  }
+  
+
+  /* Spinner */
+  .spinner {
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side,#474bff 94%,#0000) top/9px 9px no-repeat,
+           conic-gradient(#0000 30%,#474bff);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+    animation: spinner-c7wet2 1s infinite linear;
+    margin-right: 35%;
+ }
+ #day {
+  margin: 15px 0px;
+  color: grey;
+ }
+ #salon {
+  color: #033a80;
+ }
+ #apointmentsbtn {
+  background-color: #033a80;
+  color: white;
+  font-size: medium;
+  border: none;
+  cursor: pointer;
+ }
+ #apointmentsbtn:hover {
+  color: #033a80;
+  background-color: white;
+  border: 2px solid #033a80;
+ }
+ 
+ @keyframes spinner-c7wet2 {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
 
 @media(max-width:950px){
   #search-div{
@@ -354,7 +457,7 @@ border: 0px solid red;
 .main-container{
   border: 0px solid green;
   width: 85%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -371,23 +474,26 @@ border: 0px solid red;
     height: auto;
     width: 100%;
     display: grid;
-    grid-template-rows: repeat(2,1fr);
+    /* grid-template-rows: repeat(2,1fr); */
     padding: 10px;
     border-radius: 10px;
     }
     #myPopup {
       width: 400px;
-      height: 350px;
+      height: 370px;
       display: none;
       position: absolute;
       top: 120%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 20px;
-      background-color: #fff;
+      /* background-color: #fff; */
       border: 1px solid #ccc;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      background: rgba(255,255,255,0.2);
+      -webkit-backdrop-filter: blur(41px);
+      backdrop-filter: blur(41px);
     }
 
 }

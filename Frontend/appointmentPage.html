@@ -7,28 +7,28 @@
     <title>Appointments Page</title>
     <!-- Style Link -->
     <link rel="stylesheet" href="./assets/css/appintmentPage.css">
+    <link rel="stylesheet" href="./assets/css/productPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     
 </head>
 <body>
-
-<div class="navbar">
-    <div id="navbar">
-        <div id="logo-div">
-            <img class="logo" src="./logos/BeautygemLogo.png" alt="">
-        </div>
-        <div id="search-div">
-            <input class="input" type="text" placeholder="type anything">
-        </div>
-        <div id="admin-div">
-            <div id="user_name">
-                <h1>DS</h1>
-            </div>
-        </div>
+<div class="p-nav">
+    <div class="logo">
+      <img style="width: 50%;margin-top: -10px;" src="logos/BeautygemLogo.png" alt="logo">
     </div>
-</div>
+    <div class="search">
+      <input type="text">
+      <button>Search</button>
+    </div>
+    <div class="name">
+      <!-- add Person name -->
+      <h3>Pragathees</h3>
+    </div>
+  </div>
 <div class="main-body">
     <div class="main-container">
         <div class="left-container">
@@ -105,23 +105,30 @@
                 <!-- calender details -->
                
                 <div class="calender-details-user">
-                    <div style="border: 1px solid grey; width: 45%; margin-left: 10%; border-radius: 15px; text-align: center;background-color:hsl(260, 100%, 51%);color: #fff;;"><p>Confirmed</p></div>
-                    <h3>Tommorow 29th March 2023 at 9:45 am></h3>
-                    <p>Natural hair & Beaty salon- Maramalainagar</p>
+                    <div id="status" style="width: 45%; margin-left: 6%; border-radius: 15px; text-align: center;color: #fff; display: flex; justify-content: space-evenly;padding: 5px 0px; ">
+                     
+                    </div>
+                    <h3 id="day"></h3>
+                    <h2 id="salon"></h2>
 
                 </div>
                 <!-- manage apointmetns -->
                 <div class="mng-apointments">
+                    <div id="spinner" style="margin-left: -30%;display: none;" class="spinner"></div>
                     <button class="" id="apointmentsbtn">Manage appointments</button>
                     <div id="myPopup">
-                        <button id="close-btn"        id="closePopup">Close</button>
-                        <h3>Manage Appointment</h3>
-                        <div style="display: flex; flex-direction:column;">
-                            <p>Note: If you want to reschedule ragi an appointment
+                        <!-- <button id="close-btn"        id="closePopup">Close</button> -->
+                        <div id="close-btn" style="display: flex; justify-content: end; color: red;
+                        -webkit-backdrop-filter: blur(41px);
+                        backdrop-filter: blur(41px);;border: none;"><i class="fa fa-close" style="font-size:36px"></i></div>
+                        <h3 style="text-align: center; color: #195aaf;">Manage Appointment</h3>
+                        <div id="pop-card" style="display: flex; flex-direction:column;">
+                            <p><span>Note:</span> If you want to reschedule an appointment
                                 'click' on 'reschedule appointment'
                             </p>
                             <button id="pop-btn1">Reschedule appointment</button>
-                            <p>Note: If you want to cancel an appointment
+                            
+                            <p><span>Note:</span> If you want to cancel an appointment
                                 'click' on 'cancel appointment'
                             </p>
                             <button id="pop-btn2">Cancel appointment</button>
@@ -139,6 +146,7 @@
                     <!--  -->
                         </div>
                     </div>
+                    
                     <!--  -->
    
                 </div>
@@ -146,31 +154,35 @@
             <div class="appintments-details">
                 <div class="appintments-details-main-clild">
                     <h3>Appointments Details</h3>
-                    <div class="apoint-for">
-                        <div class="apoint-for-child-1">
+                    <div id="service_detail" class="apoint-for">
+                        <!-- <div class="apoint-for-child-1">
                             <p>Shave</p>
                             <p>&#8377 <span>100</span></p>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="total-amount">
-                        <div class="apoint-for-child-2">
-                            <p>total</p>
+                        <div class="apoint-for-child-1">
+                            <p>Shave</p>
                             <p>&#8377 <span>100</span></p>
-                        </div>
+                        </div> -->
                     </div>
                     <hr>
-                    <div class="booking-ref">
-                        <p>Booking ref :<span>93A6A633</span></p>
+                    <div id="total_amo" class="total-amount">
+                        <!-- <div class="apoint-for-child-2">
+                            <h3>total</h3>
+                            <h3>&#8377 <span>100</span></h3>
+                        </div> -->
+                    </div>
+                    <hr>
+                    <div id="ref" class="booking-ref">
+                        <!-- <h4>Booking ref :  <span>93A6A633</span></h4> -->
                     </div>
                 </div>
                 <div class="cancelation-policy">
-                    <h3>Cancelation policy</h3>
+                    <h3 style="color: rgb(99, 95, 95);"><i class="material-icons" style="font-size:29px;margin-right: 5px; color: red;">cancel</i>Cancelation policy</h3>
                     <p>Cancel for free up to 48 hours ahead, otherwise you will be charged 50% of the service price for late cancellation or 100% for not showing up.</p>
                 </div>
                 <hr>
-                <div>
-                    <h3>Important info</h3>
+                <div class="info">
+                    <h3 style="color: rgb(99, 95, 95);"><i class="fa fa-info-circle" style="font-size:26px;margin-right: 5px; color: red;"></i>Important info</h3>
                     <p>Please kindly aim to arrive at least 5 minutes before the start time of your appointment. </p>
                 </div>
 
