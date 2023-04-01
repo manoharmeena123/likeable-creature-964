@@ -35,7 +35,8 @@ let append = (data) => {
         console.log("you got the date");
         past_data["time"] = el;
         past_data["date"] = startdate.value;
-        window.location.href = "./payment_review.html";
+        localStorage.setItem("pastdata", JSON.stringify(past_data));
+        window.location.href = "./appointmentPage.html";
       }
     });
 
