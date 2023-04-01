@@ -22,6 +22,33 @@ userRouter.post("/mybookings", async (req, res) => {
   const booking = await BookingModel.find({ startdate });
 });
 
+
+
+//GET ALL Users================================================================>
+
+userRouter.get("/all",async(req,res)=>{
+
+  try{
+  let data = await UserModel.find()
+  res.json(data);
+  }catch(err){
+
+    res.json(err);  }
+})
+
+
+//DELET ALL Users================================================================>
+
+userRouter.delete("/delete/:id",async(req,res)=>{
+let _id = req.params.id
+  try{
+  let data = await UserModel.findByIdAndDelete({_id})
+  res.json(data);
+  }catch(err){
+
+    res.json(err);  }
+})
+
 //Register===================================================================>
 
 userRouter.post("/otp", mail, async (req, res) => {

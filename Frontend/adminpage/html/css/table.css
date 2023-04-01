@@ -1,0 +1,30 @@
+.table-responsive .table-borderless {
+    border: 2px solid var(--iq-light-border);
+    border-radius: 8px;
+    width: 100%;
+    margin: 0 auto;
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.table thead tr {
+    background: var(--iq-light-border);
+}
+.table th{
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: .2px;
+    color:#212529;
+    white-space: nowrap;
+}
+.table-borderless td{
+    padding: 10px 15px;
+}
+.table-borderless tbody tr td {
+    border-bottom: 2px solid var(--iq-light-border);
+     vertical-align: middle; 
+}
+.table-borderless tbody tr:last-child td {
+    border-bottom: 0;
+}
+.table-responsive .table-borderless .ri-ball-pen-fill,.ri-delete-bin-5-line{cursor: pointer;}
