@@ -20,6 +20,12 @@ sadd.innerText = shpname["location"];
 // let pr = document.querySelector(".pr");
 let added1 = document.getElementById("added1");
 
+var obj = {
+  services: [],
+  total: 0,
+};
+localStorage.setItem("upcoming", JSON.stringify(obj));
+
 let append = (data) => {
   console.log(data);
   data.forEach((el) => {
@@ -43,21 +49,30 @@ let append = (data) => {
 
       if (select.checked == true) {
         alert("Added to your list");
+        let ob = {};
+
         // nm.innerText = el.title;
         // pr.innerText = el.price;
         let name = document.createElement("h3");
         name.innerText = el.servicesName.substring(0, 16) + "..";
         let pc = document.createElement("h3");
         pc.innerText = `Rs. ${parseFloat(el.price.replace(/[^\d\.]/g, ""))}/-`;
+        ob.serviceName = el.servicesName.substring(0, 16) + "..";
+        ob.price = `Rs. ${parseFloat(el.price.replace(/[^\d\.]/g, ""))}/-`;
+        obj.services.push(ob);
+        console.log(ob);
+        localStorage.setItem("upcoming", JSON.stringify(obj));
         d.append(name, pc);
         added1.append(d);
 
         total = total + +parseFloat(el.price.replace(/[^\d\.]/g, ""));
+        obj.total = total;
+        localStorage.setItem("upcoming", JSON.stringify(obj));
         totalamt.innerText = `Rs. ${total}/-`;
         localStorage.setItem("totalamount", JSON.stringify(total));
       } else if (select.checked == false) {
         alert("Removed from your list");
-
+        obj.services.shift();
         console.log("before", d);
         d.remove();
 
@@ -69,6 +84,8 @@ let append = (data) => {
         console.log("after", d);
 
         total = total - +parseFloat(el.price.replace(/[^\d\.]/g, ""));
+        obj.total = total;
+        localStorage.setItem("upcoming", JSON.stringify(obj));
         totalamt.innerText = `Rs. ${total}/-`;
         localStorage.setItem("totalamount", JSON.stringify(total));
       }
@@ -95,8 +112,6 @@ let append = (data) => {
 };
 
 function get_services_data() {
-  //fetch the data and then append it using append(data)
-
   let data = JSON.parse(localStorage.getItem("list"));
   // console.log("data", data[0]);
   append(data);
