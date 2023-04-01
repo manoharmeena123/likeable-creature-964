@@ -24,6 +24,19 @@ ProjectRouter.get("/search/:key", async (req, res) => {
        console.log(error);
    }
 });
+   
+
+//GET ALL ================================================================================================> 
+ProjectRouter.get("/service",async(req,res)=>{
+   
+   try{
+   let data = await ProjectModel.find()
+   res.json(data);
+   }catch(err){
+      res.json(err)
+   }
+})
+
 
 //GET================================================================================================> 
 ProjectRouter.get("/data/:id",async(req,res)=>{

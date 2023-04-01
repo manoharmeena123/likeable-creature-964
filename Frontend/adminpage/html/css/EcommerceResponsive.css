@@ -1,0 +1,48 @@
+/*
+Template: Vito - Responsive Bootstrap 4 Admin Dashboard Template
+Author: iqonicthemes.in
+Design and Developed by: iqonicthemes.in
+NOTE: This file contains the styling for responsive Template.
+*/
+@media(max-width:1699px) {
+    .iq-product-layout-grid .iq-product-item {
+        width: calc(33% - 1rem);
+    }
+    .iq-grid-product-img{
+        min-height: 130px;
+    }
+}
+@media(max-width:1399px) {
+    .iq-grid-product-img{
+        min-height: 100px;
+    }
+}
+@media(max-width:1299px) {
+    .iq-grid-product-img{
+        min-height: 150px;
+    }
+}
+@media(max-width:1199px) {
+}
+@media(max-width:992px) {
+    .iq-product-layout-list .iq-product-action{
+        border-left: unset;
+    }
+}
+@media(max-width:979px) {
+}
+@media(max-width:767px) {
+    .iq-product-layout-grid .iq-product-item {
+        width: calc(50% - 1rem);
+    }
+    .ais-Stats{
+        display: none;
+    }
+}
+@media(max-width:479px) {
+
+    .iq-product-layout-grid .iq-product-item {
+        width: calc(100% - 1rem);
+    }
+}
+@media(max-width:359px) { }
