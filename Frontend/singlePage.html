@@ -8,6 +8,20 @@
 
     <link href="./logos/Beauty -landing logo.png" rel="icon">
     <link rel="stylesheet" href="./assets/css/productPage.css">
+    <link rel="stylesheet" href="./assets/css/singlePage.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- mini-logos -->
     <link rel="stylesheet"
@@ -15,246 +29,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Product</title>
-    <style>
-        .map-product {
-            height: 400px;
-            width: 90%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .title {
-            margin-left: 5%;
-        }
-
-        .title p,
-        h1 {
-            margin: 10px 0px;
-        }
-
-        .title p {
-            color: grey;
-        }
-
-        .title h1 {
-            color: #37517e;
-        }
-
-        .product {
-            /* border: 1px solid red; */
-            position: relative;
-        }
-
-        .product img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* .map {
-            border: 1px solid red;
-        } */
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        .book {
-            display: flex;
-            width: 60%;
-            /* border: 1px solid black; */
-            margin: auto;
-            padding: 17px 10px;
-            justify-content: center;
-        }
-
-        .book button {
-            padding: 15px 95px;
-            font-size: 24px;
-            background-color: #37517e;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .book button:hover {
-            color: #37517e;
-            background-color: white;
-            border: 2px solid #37517e;
-        }
-
-        .about {
-            /* border: 1px solid red; */
-            width: 90%;
-            margin: auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .about h2 {
-            margin-left: 19px;
-            color: #37517e;
-        }
-
-        .about p:nth-child(2) {
-            font-size: larger;
-            padding: 5px;
-        }
-
-        .about p:nth-child(3) {
-            font-size: large;
-            color: grey;
-            padding: 5px;
-        }
-
-        .about .loca>p {
-            padding: 10px;
-            font-size: larger;
-        }
-
-        .about .loca hr {
-            width: 90%;
-        }
-
-        .line {
-            width: 90%;
-            margin: auto;
-        }
-
-        .line hr {
-            margin: 20px;
-        }
-
-        .service {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /* border: 1px solid red; */
-            width: 90%;
-            margin: auto;
-        }
-
-        .service .ser-list h2 {
-            color: #37517e;
-        }
-
-        .ser-list {
-            padding: 25px;
-        }
-
-        .all-list {
-            padding: 0px 25px 25px 25px;
-            /* border: 1px solid black; */
-        }
-
-        .ser-list p {
-            font-size: larger;
-            padding: 4px;
-            cursor: pointer;
-        }
-
-        .ser-list p:nth-child(odd) {
-            background-color: lightblue;
-        }
-
-        .stick {
-            /* border: 1px solid red; */
-            display: flex;
-            justify-content: center;
-            background-color: #37517e;
-            color: white;
-        }
-
-        .stick h2 {
-            margin: 12px;
-        }
-
-        .add-ser {
-            height: 400px;
-            /* border: 2px solid brown; */
-            overflow: auto;
-        }
-
-        .list-card {
-            /* border: 1px solid green; */
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-
-        .list-card p {
-            font-size: larger;
-        }
-
-
-        @media screen and (min-width:481px) and (max-width: 786px) {
-
-            /* Styles for screens with maximum width of 768px */
-            .map-product {
-                grid-template-columns: 1fr;
-            }
-
-            .product {
-                height: 300px;
-            }
-
-            .map {
-                height: 250px;
-            }
-
-            .book {
-                margin-top: 240px;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-
-            .service {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-
-            /* Styles for screens with maximum width of 480px */
-            .map-product {
-                grid-template-columns: 1fr;
-            }
-
-            .product {
-                height: 300px;
-            }
-
-            .map {
-                height: 250px;
-            }
-
-            .book {
-                margin-top: 240px;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-
-            .service {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+   
 </head>
 
 <body>
     <div class="p-nav">
         <div class="logo">
-            <img src="logos/BeautygemLogo.png" alt="logo">
+            <img id="logo" style="cursor: pointer;" src="logos/BeautygemLogo.png" alt="logo">
         </div>
         <div class="search">
             <input type="text">
@@ -262,7 +43,7 @@
         </div>
         <div class="name">
             <!-- add Person name -->
-            <h3>Pragathees</h3>
+            <h3>PR</h3>
         </div>
     </div>
     <div class="main-card">
@@ -357,6 +138,98 @@
             </div>
         </div>
     </div>
+
+    <footer id="footer">
+
+        <div class="footer-newsletter">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <h4>Join Our Newsletter</h4>
+                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                <form action="" method="post">
+                  <input type="email" name="email"><input type="submit" value="Subscribe">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h3><span><img width="70%" style="margin-left: -10px;" src="../Frontend/logos/BeautygemLogo.png" alt=""></span></h3>
+                <p>
+                  A108 Adam Street <br>
+                  New York, NY 535022<br>
+                  United States <br><br>
+                  <strong>Phone:</strong> +1 5589 55488 55<br>
+                  <strong>Email:</strong> info@example.com<br>
+                </p>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Social Networks</h4>
+                <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                <div class="social-links mt-3">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+    
+        <div class="container footer-bottom clearfix">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Beautygem</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+            Designed by <a href="#">Beautygem Team</a>
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+    
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
 </body>
 
 </html>
@@ -439,6 +312,10 @@
         cont.innerHTML = list.join("")
 
     }
+
+    document.querySelector("#logo").addEventListener("click",()=>{
+        window.location.href = "index.html"
+    })
 
   //testing
 

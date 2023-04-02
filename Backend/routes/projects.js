@@ -80,10 +80,15 @@ ProjectRouter.post("/add",async(req,res)=>{
 })
 
 //Delete================================================================================================>  
-ProjectRouter.delete("/:id",async(req,res)=>{
-  let _id = req.params.id;
-  let out = await ProjectModel.findByIdAndDelete(_id);
-  res.send("deleted successfully")
+ProjectRouter.delete("/delete/:id",async(req,res)=>{
+  let id = req.params.id;
+  try {
+      let out = await ProjectModel.findByIdAndDelete({_id: id});
+      res.send("deleted has been successfully")
+  } catch (error) {
+      console.log(error);
+      res.send("Something went wrong")
+  }
 
 })
 
