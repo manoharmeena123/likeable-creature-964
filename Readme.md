@@ -8,10 +8,9 @@ For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Back
  - Frontend deployed  - https://stalwart-pastelito-e8ed45.netlify.app
  - Backend deployed  - https://long-pear-slug-belt.cyclic.app
 
+---
 
-
-### How To Use ✅
-
+## How To Use ✅
 First, you have to have to go to the `Home Page`. There you have to click on the account to get a pop window where there is a sign-up using your Email Address.  There you can explore the home page or go to the Main page and By set the Time Tracker into their projects. Then click on start the Booking user can see their activities in the calendar and Dashboard sections and save our Daily report on the Report page also users can Tag their activities and Booking appointment.
 ---
 
@@ -40,12 +39,6 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 - [Pragatheeswara S]()
 - [Rudra Manu]()
 - [Dilip Sanap]()
-
----
-
-
-
----
 
 
 ---
