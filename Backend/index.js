@@ -1,4 +1,5 @@
 const express = require("express");
+ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
 const app = express();
 app.use(express.json());
 require("dotenv").config();
@@ -27,6 +28,9 @@ const { authorise } = require("./middleware/authorise");
 const { generateOtpRouter } = require("./routes/generateotpmail");
 const { newtokenRouter } = require("./routes/newtoken");
 const { ProjectRouter } = require("./routes/projects");
+const {sendMail}=require("./routes/sendMail");
+// add Data To Backend
+const {addRouter}=require("./routes/addDataToBackend")
 app.get("/", (req, res) => {
   console.log(req.cookies);
   res.json("Welcome");
@@ -42,6 +46,7 @@ app.use("/", newtokenRouter);
 // app.use(authenticate)
 
 //additional routers
+app.use("/addDataToBackend",addRouter)
 app.listen(process.env.port, async () => {
   try {
     await connection;
