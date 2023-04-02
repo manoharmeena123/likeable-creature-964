@@ -55,7 +55,7 @@ For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Back
 - `Express JS`
 - `MongoDB` 
 - `Bootstrap`
-
+---
 # Images ✌️
 
 ![Screenshot (89)](https://user-images.githubusercontent.com/108083768/229376706-8fe1dda3-2874-4e53-8e2d-91f39a4150fd.png)
