@@ -73,7 +73,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 input[type="checkbox"]:checked {
-  background-color: rgb(54, 233, 42);
+  background-color: #0d47a1;
   border: none;
 }
 #main {
@@ -114,4 +114,16 @@ input[type="checkbox"]:checked {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (min-width: 350px) and (max-width: 786px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+  }
+  #left {
+    width: 100%;
+  }
+  #right {
+    width: 100%;
+  }
 }

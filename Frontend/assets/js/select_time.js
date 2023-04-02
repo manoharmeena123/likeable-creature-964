@@ -18,6 +18,7 @@ total.innerText = `Rs. ${totalamount}.00/-`;
 const startdate = document.getElementById("startDate");
 
 let selecttime = document.getElementById("sltime");
+let choosedate = document.getElementById("choose");
 
 let append = (data) => {
   data.forEach((el) => {
@@ -30,15 +31,22 @@ let append = (data) => {
 
     div1.addEventListener("click", () => {
       if (startdate.value == "") {
-        return alert("Select date first");
+        return (
+          (choosedate.style.color = "#D50000"),
+          (choosedate.style.textShadow = "1px 1px black"),
+          (choosedate.innerText = "\u{26A0} Please Select The Date")
+        );
       } else {
         console.log("you got the date");
+        choosedate.style.color = "#00C853";
+        choosedate.style.textShadow = "1px 1px black";
+        choosedate.innerText = "\u{2713} Awesome";
         past_data["time"] = el;
         past_data["date"] = startdate.value;
         localStorage.setItem("pastdata", JSON.stringify(past_data));
         setTimeout(() => {
           window.location.href = "./confirmation_page.html";
-        }, 1500);
+        }, 2000);
       }
     });
 
