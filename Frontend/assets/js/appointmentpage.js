@@ -2,6 +2,10 @@ var myButton = document.getElementById("apointmentsbtn");
 var myPopup = document.getElementById("myPopup");
 var closePopup = document.getElementById("close-btn");
 
+document.querySelector("#logo").addEventListener("click",()=>{
+  window.location.href = "index.html"
+})
+
 myButton.onclick = function() {
   myPopup.style.display = "block";
 }
@@ -36,8 +40,8 @@ let order_data = JSON.parse(localStorage.getItem("pastdata"))
 //   time: "10:30 AM"
 // }
 
-console.log(order_data);
-console.log(shopData);
+// console.log(order_data);
+// console.log(shopData);
 
 
 
@@ -97,7 +101,25 @@ function renderAll(orderStatus){
   refe.innerHTML = `
     <h4>Booking ref :  <span>${Math.floor(Math.random() * 9000001) + 1000000}</span></h4>
   `
-  // ${Math.floor(Math.random() * 9001) + 1000}
+  // Left Order details card
+  let leftCardOrder = document.querySelector("#ua-data")
+  leftCardOrder.innerHTML = `
+    <div style="padding: 5px 0px; cursor: pointer;" class="apointment-card">
+    <div class="card-img-div">
+        <!-- add image here -->
+        <img class="salon-img-src" src=${shopData.image} alt="salon">
+    </div>
+    <div class="description-div">
+        <!-- add description here -->
+        <p id="l-fix" style=" color: ${orderStatus?"green" : "red"};">Date: ${order_data.date} At ${order_data.time}</p>
+        <h4 style="margin-left: 14px; color:blue;">${shopData.name}</h4>
+        <p>Total: ${order_data.total}</p>
+    </div>
+  `
+
+  // Map append
+  let map = document.getElementById("map");
+  map.src = `https://maps.google.com/maps?q=${shopData.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
 
 }
 
@@ -117,4 +139,7 @@ cancelOrder.addEventListener("click",()=>{
   },2000)
 })
 
-
+//Reschedule Button
+  document.querySelector("#pop-btn1").addEventListener("click", ()=>{
+    window.location.href = "select_time.html"
+  })
