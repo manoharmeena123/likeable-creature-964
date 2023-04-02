@@ -20,6 +20,9 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 - `Sign-In`: User authentication to check whether the user's phone number and password match with details existing in the database.
 - `Main Page` : Here user will get all the services and he can choose services
 - `Appointment Page` : After location  user can choose Time slot according to suitability
+- `Admin Page`
+- `Dashboard Page`
+
 
 ---
 
