@@ -817,15 +817,15 @@
    let newData= data.map((ele) => {
       // console.log(ele._id);
       return ` <tr>
-                      <td>${ele._id}</td>
-                     <td>${ele.email}</td>
-                     <td>${ele.password.substring(1,15)}</td>
-                     <td>${ele.otp}</td>
+                      <td id ="id">${ele._id}</td>
+                     <td id ="email">${ele.email}</td>
+                     <td id ="password">${ele.password.substring(1,15)}</td>
+                     <td id ="otp">${ele.otp}</td>
                      <td>
                           <div class="flex align-items-center list-user-action">
                             <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add" href="#"><i class="ri-user-add-line"></i></a>
                                           <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-pencil-line"></i></a>
-                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-delete-bin-line"></i></a>
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" id ="delete" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                                        </div>
                                     </td>
                 </tr>`;
@@ -836,34 +836,42 @@
 
     tbody.innerHTML =newData.join(" ");
 
-//     let all_delete_btn = document.querySelectorAll(".delete");
-//   for (let btn of all_delete_btn) {
-//     btn.addEventListener("click", (event) => {
-//       let data_id = event.target.dataset._id;
-//       console.log(data_id, typeof data_id);
-//       DeleteBtn(data_id);
-//     });
-//   }
-// //  let p=document.querySelector(".ri-delete-bin-line")
+    let all_delete_btn = document.getElementById("delete");
+  for (let btn of all_delete_btn) {
+    btn.addEventListener("click", (event) => {
+      let data_id = event.target.dataset._id;
+      console.log(data_id, typeof data_id);
+      DeleteBtn(data_id);
+    });
+  }
+//  let p=document.querySelector(".ri-delete-bin-line")
 
 
-//   }
-// async function DeleteBtn(_id){
-  
-//    let delete_data = await fetch(`http://localhost:8000/user/delete/:${_id}`,{
-//       method:"DELETE",
-//       headers:{
-//          "Content-Type": "application/json",
-//       }
+  }
+
+async function DeleteBtn(_id){
+    let id = document.getElementById("id").value
+  let email = document.getElementById("email").value
+  let password = document.getElementById("password").value
+  let otp = document.getElementById("otp").value
+  let obj ={
+  id,email,password,otp  
+}
+   let delete_data = await fetch(`http://localhost:8000/user/delete/:${_id}`,{
+      method:"DELETE",
+      headers:{
+         "Content-Type": "application/json",
+      },
+      body :JSON.stringify(obj)
       
-//    })
-//    .then((res)=> res.json())
-//    .then((data)=>{
-//       console.log(data)
-//       Display(data)
-//    }).catch((err) =>{
-//       console.log(err)
-//    })
+   })
+   .then((res)=> res.json())
+   .then((data)=>{
+      console.log(data)
+      // Display(data)
+   }).catch((err) =>{
+      console.log(err)
+   })
 }
 
 </script>
