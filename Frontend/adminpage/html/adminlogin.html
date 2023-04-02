@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href= "./css/login.css"" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">     <!-- Container divided into 2 parts - Left and Right -->
+
+        <!-- Left Part start-->
+        <div class="container__leftPart">   
+
+            <!-- Navbar containing company logo and sign-up link -->
+            <div class="container__navbar">
+                <a href="#">Home Page</a>
+            </div>
+              <h1>Hello Admin Welcome Back !</h1>
+            <!-- Login card start-->
+            <div class="container__loginCard">
+                <h3>Welcome Admin...</h3>
+                <input type="email" placeholder="Enter email" id="email">
+                <input type="password" placeholder="Enter password" id="password">
+                <div class="loginCard__checkbox">
+                    <input type="checkbox">
+                    <label>Stay logged in</label>
+                </div>
+                <a href="#">Forgot password?</a><br>
+                <div class="loginBtn-link" ><a href="#"><button class="loginCard__loginBtn" id="login-btn" >Log in</button></a></div>   <!-- Log-in button verifies if user entered correct email. Initially set as disabled -->
+                <div class="loginCard__line">
+                    <div class="loginCard__leftLine"></div>
+                    <p style="color: #333333; font-size: 14px;">OR</p>
+                    <div class="loginCard__rightLine"></div>
+                </div>
+                <button class="loginCard__googleBtn"><img src="https://clockify.me/assets/ui-icons/icon-google.svg"> <span>Continue with Google</span></button>
+                 
+            </div>
+            <!-- Login card end-->
+
+        </div>
+        <!-- Left Part end-->
+
+        <!-- Right Part start-->
+        <div class="container__rightPart">
+            <h2>No need to keep Track it in a tab</h2>
+            <p>Install the browser extension<br> and start the booking from <br>anywhere.</p>
+            <img src="https://clockify.me/assets/ui-icons/ext-chrome.svg" class="rightPart__appstore"><br>   
+            <img src="https://clockify.me/assets/ui-icons/login-promo-2.svg" class="rightPart__pic"><br>
+            <div class="rightPart__learnMore"><a href="#">Learn More</a></div>
+        </div>
+        <!-- Right Part end-->
+
+    </div>
+    <!-- Container end-->
+
+    <!-- <script src="log-in.js"></script> -->
+</body>
+</html>
+<script>
+
+const login = document.querySelector("#login-btn");
+login.addEventListener("click", func);
+async function func(event) {
+ 
+    event.preventDefault();
+    // let all_input_tags = document.querySelectorAll("#register input");
+
+    let email = document.querySelector("#email").value;
+    let  password = document.querySelector("#password").value;
+    let userObj = {
+      email,
+      password
+    };
+
+  if(email=="admin@gmail.com" && password=="admin"){
+    window.location.href ="./admin.html"
+  }else{
+    alert("Only Admin Allowed to this page !")
+  }
+
+}
+
+
+</script>
