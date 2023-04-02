@@ -133,6 +133,11 @@
   // console.log(arr)
   let flag=true;
   let status=null
+  if(email=="admin@gmail.com" && password =="admin"){
+    window.location.href ="../Frontend/adminpage/html/index.html"
+  }else{
+
+  
         let register_request = await fetch(
           "http://localhost:8000/user/otp",
           {
@@ -164,6 +169,7 @@
 
           })
           .catch((err) => console.log(err));
+        }
       } catch (error) {
         alert("Something went wrong. Please try again later.");
         // console.log(error)
