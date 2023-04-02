@@ -60,7 +60,7 @@
                      <li class="active">
                         <a href="#userinfo" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="true"><i class="ri-user-line"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                         <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                           <li class="active"><a href="profile.html"><i class="ri-profile-line"></i>Service List</a></li>
+                           <li class="active"><a href="profile.html"><i class="ri-profile-line"></i>Product List</a></li>
                            <li><a href="user-list.html"><i class="ri-file-list-line"></i>User List</a></li>
                         </ul>
                      </li>
@@ -530,7 +530,7 @@
   <div class="flex align-items-center list-user-action">
                             <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add" href="#"><i class="ri-user-add-line"></i></a>
                                           <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-pencil-line"></i></a>
-                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-delete-bin-line"></i></a>
+                                          <a class="iq-bg-primary" data-id=${item._id} data-toggle="tooltip" id="delete" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-delete-bin-line"></i></a>
                                        </div>
 </div>
 <br/>
@@ -538,5 +538,32 @@
       `
    })
    main.innerHTML =new_data.join(" ")
+
+   let all_delete_btn = document.querySelectorAll("#delete");
+    for (let btn of all_delete_btn) {
+      btn.addEventListener("click", (event) => {
+        console.log(event.currentTarget.dataset.id);
+        let id = event.currentTarget.dataset.id
+        DeleteBtn(id)
+      });
+    } 
+
+  }
+
+  async function DeleteBtn(id) {
+    let delete_data = await fetch(`http://localhost:8000/product/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        // Display(data)
+        window.location.reload()
+      }).catch((err) => {
+        console.log(err)
+      })
   }
 </script>

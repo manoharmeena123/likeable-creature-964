@@ -40,9 +40,9 @@ userRouter.get("/all",async(req,res)=>{
 //DELET ALL Users================================================================>
 
 userRouter.delete("/delete/:id",async(req,res)=>{
-let _id = req.params.id
+let id = req.params.id
   try{
-  let data = await UserModel.findByIdAndDelete({_id})
+  let data = await UserModel.findByIdAndDelete({_id :id})
   res.json(data);
   }catch(err){
 
