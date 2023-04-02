@@ -96,7 +96,6 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
     width: 95%;
     margin: auto;
     padding: 40px;
@@ -110,58 +109,49 @@ header{
 }
 /* left-container */
 .left-container{
-border: 0px solid red;
-height: auto;
-width: 50%;
-display: grid;
-grid-template-rows: repeat(2,1fr);
-}
-.upcoming-appointments{
-border: 0px solid green;
-height: 100%;
-width: auto;
+  height: auto;
+  width: 50%;
 }
 .past-appointments{
-border: 0px solid red;
 height: 100%;
 width: auto;
 }
 /* upcoming ap */
 #ua-data{
-    border: 0px solid;
-    height: 85%;
+    /* border: 1px solid red; */
     width: 95%;
     margin: auto;
     margin-top: 10px;
-    display: flex;
-    flex-direction: column;
 }
 .apointment-card{
-    border: 1px solid grey;
     border-radius:10px ;
     height: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-bottom: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.past-appointments h3 {
+  text-align: center;
+  margin: 15px 0px;
+  color: #0f0c27;
 }
 .apointment-card:hover{
-border: 2px solid hsl(260, 100%, 51%);
+  border: 2px solid hsl(260, 100%, 51%);
 }
 
 .card-img-div{
     width: 25%;
-    border: 0px solid green;
     border-radius: 20px;
 
 }
 .salon-img-src{
     width: 100%;
+    height: 90%;
     border-radius: 15px;
 }
 .description-div{
-
 width: 65%;
-border: 0px solid orangered;
 border-radius: 10px;
 }
 .description-div p{
@@ -180,17 +170,11 @@ border-radius: 10px;
 }
 /* right container */
 .right-container{
-border: 1px solid grey;
 height: auto;
 width: 50%;
-/* display: grid; */
-/* grid-template-rows: repeat(2,1fr); */
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 padding: 15px;
 border-radius: 10px;
-}
-.appointments-calender{
-border: 0px solid red;
-
 }
 .mng-apointments{
     display: flex;
@@ -212,7 +196,16 @@ border: 0px solid red;
 #apointmentsbtn:hover{
     background-color:hsl(260, 100%, 51%); ;
     color: #fff;
-    
+}
+
+.map {
+  /* border: 1px solid red; */
+  height: 300px;
+  margin: 30px 0px;
+}
+.map h3 {
+  text-align: center;
+  color: #033a80;
 }
 
 .calender-details-user{
@@ -312,7 +305,7 @@ border: 0px solid red;
 /* Popup css */
 #myPopup {
     width: 400px;
-    height: 350px;
+    height: 390px;
     display: none;
     position: absolute;
     top: 50%;
@@ -462,11 +455,8 @@ border: 0px solid red;
   flex-direction: column;
 }
 .left-container{
-  border: 0px solid red;
   height: auto;
   width: 100%;
-  display: grid;
-  grid-template-rows: repeat(2,1fr);
   }
   .right-container{
     margin-top: 15px;
@@ -474,7 +464,6 @@ border: 0px solid red;
     height: auto;
     width: 100%;
     display: grid;
-    /* grid-template-rows: repeat(2,1fr); */
     padding: 10px;
     border-radius: 10px;
     }

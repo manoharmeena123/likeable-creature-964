@@ -24,7 +24,7 @@
     <div class="Sign_Up_Contianer">
         <!-- Navbar -->
         <div class="Sign_Up_Navbar">
-          <img style="width: 30%;" src="./logos/Beautygem_login-signpage.png" alt="logo">
+          <img id="logo" style="width: 30%;" src="./logos/Beautygem_login-signpage.png" alt="logo">
             <a href="login.html" class="Sign_Up_Login">Log In</a>
         </div>
         <!-- Get Sarted -->
@@ -178,6 +178,10 @@
 
    
     }
+
+    document.querySelector("#logo").addEventListener("click",()=>{
+      window.location.href = "index.html"
+    })
 
     
 
