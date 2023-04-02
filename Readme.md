@@ -1,5 +1,7 @@
  
-# Beautygem
+# Welcome 👋
+  ---
+# Beautygem 
 Beautygem allows businesses to have clients book appointments from Facebook, Instagram, Google, and their website with a “Book Now” button. It also gives customers the ability to reschedule, cancel, and rebook appointments online so they don't need to make a call.26
 ## Deployment
 For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Backend deployed on Cyclic .
@@ -11,8 +13,6 @@ For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Back
 
 
 ---
-
-# Welcome 👋
 
 ---
 
