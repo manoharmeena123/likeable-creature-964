@@ -65,6 +65,11 @@ For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Back
 - /user/otp
 - /user/register/
 - /addDataToBackend/add
+- /product/service
+- user/all
+- user/all/services
+- user/all/products
+- /addData/servies/
 ---
 
 # Images ✌️
