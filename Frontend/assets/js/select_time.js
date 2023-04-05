@@ -1,5 +1,6 @@
 let shpname = JSON.parse(localStorage.getItem("shopDetails"));
 let past_data = JSON.parse(localStorage.getItem("upcoming"));
+let cu_email = localStorage.getItem("email")
 console.log("past", past_data);
 
 let simage = document.getElementById("ad1");
@@ -43,7 +44,11 @@ let append = (data) => {
         choosedate.innerText = "\u{2713} Awesome";
         past_data["time"] = el;
         past_data["date"] = startdate.value;
-        localStorage.setItem("pastdata", JSON.stringify(past_data));
+        past_data["email"] = cu_email;
+        past_data["salon"] = shpname
+        localStorage.setItem("orderData", JSON.stringify(past_data));
+
+
         setTimeout(() => {
           window.location.href = "./confirmation_page.html";
         }, 2000);
