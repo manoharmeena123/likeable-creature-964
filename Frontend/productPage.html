@@ -188,12 +188,14 @@
 
   async function getData(){
     try {
+
         let res = await fetch(`http://localhost:8000/product/search?location=${place}`,{
           headers:{
             "Content-type": "application/json",
             "Authorization":`${localStorage.getItem("token")}`
           }
         })
+
         let pro_data = await res.json()
         console.log(pro_data);
         globalData = [...pro_data]

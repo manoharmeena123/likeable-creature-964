@@ -9,7 +9,7 @@ let order_data = JSON.parse(localStorage.getItem("pastdata"))
 
 
 const sendData=()=>{
-    let res=fetch('htttp://localhost:8000/addDataToBackend/add',{
+    let res=fetch('https://long-pear-slug-belt.cyclic.app/addDataToBackend/add',{
         method:"POST",
         body:{
             name:shopData.name,

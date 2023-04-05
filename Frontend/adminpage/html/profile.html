@@ -495,7 +495,7 @@
     let btn = document.getElementById("contain");
  async function Users(){
    //  e.preventDefault();
-    let fetchdata = await fetch("http://localhost:8000/product/service", {
+    let fetchdata = await fetch("https://long-pear-slug-belt.cyclic.app/product/service", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -551,7 +551,7 @@
   }
 
   async function DeleteBtn(id) {
-    let delete_data = await fetch(`http://localhost:8000/product/delete/${id}`, {
+    let delete_data = await fetch(`https://long-pear-slug-belt.cyclic.app/product/delete/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
