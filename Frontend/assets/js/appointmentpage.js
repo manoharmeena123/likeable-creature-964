@@ -148,7 +148,7 @@ cancelOrder.addEventListener("click",()=>{
 
   async function sentMail(){
     try {
-      let res = await fetch("http://localhost:8000/book/appo", {
+      let res = await fetch("https://long-pear-slug-belt.cyclic.app/book/appo", {
           method: 'POST',
           headers: {
               'content-type': 'application/json',
