@@ -244,7 +244,7 @@
 
     async function getData() {
         try {
-            let res = await fetch(`http://localhost:8000/product/data/${pro_id}`)
+            let res = await fetch(`https://long-pear-slug-belt.cyclic.app/product/data/${pro_id}`)
             let pro_data = await res.json()
             console.log(pro_data);
             globalData = [...pro_data]
