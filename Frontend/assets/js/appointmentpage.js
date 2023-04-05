@@ -28,7 +28,7 @@ popbtn2.onclick=function(){
 let shopData = JSON.parse(localStorage.getItem("shopDetails"))
 
 //Order details
-let order_data = JSON.parse(localStorage.getItem("pastdata"))
+let order_data = JSON.parse(localStorage.getItem("orderData"))
 //*************DATA STRUCTURE************* */
 // let order_data = {
 //   services : [
@@ -143,3 +143,22 @@ cancelOrder.addEventListener("click",()=>{
   document.querySelector("#pop-btn1").addEventListener("click", ()=>{
     window.location.href = "select_time.html"
   })
+
+  //Send mail To Customer through our email id
+
+  async function sentMail(){
+    try {
+      let res = await fetch("http://localhost:8000/book/appo", {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json',
+              Authorization:localStorage.getItem("token")
+          },
+          body: JSON.stringify(order_data)
+      })
+    } catch (error) {
+        alert("Something Went wrong")
+        console.log(error);
+    }
+  }
+  sentMail()

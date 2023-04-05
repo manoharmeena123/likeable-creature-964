@@ -188,14 +188,19 @@
 
   async function getData(){
     try {
-        let res = await fetch(`http://localhost:8000/product/search?location=${place}`)
+        let res = await fetch(`http://localhost:8000/product/search?location=${place}`,{
+          headers:{
+            "Content-type": "application/json",
+            "Authorization":`${localStorage.getItem("token")}`
+          }
+        })
         let pro_data = await res.json()
-        //console.log(pro_data);
+        console.log(pro_data);
         globalData = [...pro_data]
         render(pro_data)
         detaileData(pro_data)
     } catch (error) {
-        alert(`Something went wrong`)
+        alert(`Please Login`)
         console.log(error);
     }
   }
