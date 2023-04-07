@@ -35,7 +35,7 @@ First, you have to have to go to the `Home Page`. There you have to click on the
 ---
 ## Deployment
 For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Backend deployed on Cyclic .
- - Frontend deployed  - https://stalwart-pastelito-e8ed45.netlify.app
+ - Frontend deployed  - https://lucky-choux-d2be6b.netlify.app/
  - Backend deployed  - https://long-pear-slug-belt.cyclic.app
 
 ---
