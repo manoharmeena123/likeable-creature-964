@@ -45,6 +45,7 @@ For Deployment we used Netlify and Cyclic .Frontend deployed on Netlify and Back
 - [Pragatheeswara S]()
 - [Rudra Manu]()
 - [Dilip Sanap]()
+- [Arun Yadav](https://www.linkedin.com/in/arun-yadav-96a824222/)
 
 
 ---
